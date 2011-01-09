@@ -1,0 +1,20 @@
+/*
+This CSS reset file is an adaptation of Eric Meyer's "Reset Reloaded".
+You can find the original in Eric's Blog following this link:
+http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/
+
+Project: Blank CSS Template
+Project Website: http://code.google.com/p/blank-css-template/
+Last updated:  2008-01-03
+License: GNU-GPL v2
+file: reset.css
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, a, abbr, acronym, big, font, img, small, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td {margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; background:transparent;}
+body {line-height:1;}
+ol, ul {list-style:none;}
+blockquote, q {quotes:none;}
+:focus {outline:0;}
+ins {text-decoration:none;}
+del {text-decoration:line-through;}
+table {border-collapse:collapse; border-spacing:0;}
