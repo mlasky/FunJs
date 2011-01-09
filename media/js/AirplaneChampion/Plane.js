@@ -7,8 +7,6 @@ Engine.Obj.Plane = function(obj) {
   this.touch = {};
   this.touch.distance = 0;
   
-  this.drawable.animations.baseTime = this.drawable.animations.time;
-  
   this.bind('TouchStart');
   this.bind('TouchMove');
   this.bind('TouchEnd');
@@ -18,8 +16,7 @@ Engine.Obj.Plane = function(obj) {
 
 Engine.Obj.Plane.prototype = Engine.GameObj.prototype;
 
-Engine.Obj.Plane.prototype.onDraw = function(ctx, camera, dTime) {
-};
+Engine.Obj.Plane.prototype.onDraw = function(ctx, camera, dTime) {};
 
 Engine.Obj.Plane.prototype.onTick = function(ctx, camera, dTime) {
   var l = this.location;
