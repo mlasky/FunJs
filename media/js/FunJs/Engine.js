@@ -12,16 +12,17 @@ var Engine = function(canvas, resources) {
                                     canvas.height);
   this.initEvents();
   this.loadObjects(resources);
+  this.initPhysics();
+  
   this.run();
-    
+  
   return this;
 };
 
 Engine.prototype.run = function() {
-  var inter = window.setInterval;
   try {
-    inter(this.tick, 0, this);
-    inter(this.updateFps, 1000, this);
+    window.setInterval(this.tick, 0, this);
+    window.setInterval(this.updateFps, 1000, this);
   } catch (e) {
     Engine.onError(e);
   }
@@ -34,6 +35,9 @@ Engine.prototype.initEvents = function() {
   $c.on('touchend', Engine.Event.TouchEnd);
 };
 
+Engine.prototype.initPhysics = function() {
+  this.world = Engine.Physics.World;
+}
 Engine.prototype.loadObjects = function(resources) {
   // Load Game Objects
   var gameObjs = resources.gameObjs || [];
@@ -83,7 +87,6 @@ Engine.prototype.tick = function(self) {
   } catch (e) {
     Engine.onError(e);
   }
-  
 };
 
 Engine.prototype.updateFps = function(self) {
@@ -106,9 +109,8 @@ Engine.calcCollisions = function(objects, len) {
     while (rest--) {
       var collider = objects[rest];
       if (collider && simpleCollision(obj, collider)) {
-        //obj.onCollision(collider);
+        obj.onCollision(collider);
         //collider.onCollision(obj);
-        alert("Collision!");
       }
     }
   }
@@ -127,7 +129,7 @@ Engine.Rectangle = function(w, h) {
   };
 };
 
-Engine.Vector = function(x, y) {
+Engine.Vector2D = function(x, y) {
   return { 
     'x': x || 0, 
     'y': y || 0,
@@ -135,6 +137,22 @@ Engine.Vector = function(x, y) {
       var x = this.x;
       var y = this.y;
       return Math.sqrt((x * x) + (y * y));
+    },
+    'normal': function() {
+      var mag = this.magnitude();
+      return Engine.Vector2D(this.x / mag, this.y / mag);
+    },
+    'inverse': function() {
+      return Engine.Vector2D(-(this.x), -(this.y));
+    },
+    'dotProduct': function(v) {
+      return this.x * v.x + this.y * v.y;
+    },
+    'add': function(v) {
+      return Engine.Vector2D(this.x + v.x, this.y + v.y);
+    },
+    'subtract': function(v) {
+      return Engine.Vector2D(this.x - v.x, this.y - v.y);
     }
   };
 };

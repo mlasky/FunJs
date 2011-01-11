@@ -70,7 +70,7 @@ Engine.Obj.Plane.prototype.onTouchMove = function(event) {
     l.x = parseInt(event.pageX - (this.width / 2), 10);
     l.y = parseInt(event.pageY - (this.height / 2), 10);
 
-    t.distance += Engine.Vector(l.x - t.px, l.y - t.py).magnitude();
+    t.distance += Engine.Vector2D(l.x - t.px, l.y - t.py).magnitude();
   }
 };
 

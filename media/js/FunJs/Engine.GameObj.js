@@ -1,4 +1,4 @@
-Engine = Engine || {};
+var Engine = Engine || {};
 
 Engine.GameObj = function(obj) {
   this.init(obj);
@@ -9,20 +9,30 @@ Engine.GameObj.prototype.init = function(obj) {
   this.name           = obj.name;
   this.location       = Engine.Point(obj.x, obj.y);
   this.uid            = "" + Engine.getTime();
-  this.width          = 0;
-  this.height         = 0;
-  this.rotation       = obj.rotation || 0;
+  this.width          = obj.width       || 0;
+  this.height         = obj.height      || 0;
+  this.fixed          = obj.fixed       || false;
+  this.friction       = obj.friction    || 0.0;
+  this.density        = obj.density     || 0.0;
+  this.restitution    = obj.restitution || 0;
+  this.parent         = obj.parent      || null;
+  this.uData          = obj.uData       || {};
+  this.sFlag          = obj.sFlag       || false;
+  this.cFlags         = obj.cFlags;
   
   this.isTouchMoving  = false;
   this.touched        = false;
   
-  var velocity        = obj.velocity || Engine.Vector();
-  this.velocity       = Engine.Vector(velocity.x, velocity.y);
-  
   var drawable = obj.drawable;
   if (drawable) {
-    this.drawable = new Engine.Sprite(drawable.image, 
+    this.drawable = new Engine[drawable.type](drawable.image, 
       new Engine.Sprite.Animation(drawable.animation.time, drawable.animation.frames));
+    
+    this.width = (drawable.image.width / drawable.numFrames)  / Engine.density;
+    this.height = drawable.image.height;
+    
+    var l = this.location;
+    this.cBody = Engine.Physics.BoxBody(this);
   }
 };
 
@@ -32,11 +42,10 @@ Engine.GameObj.prototype.tick = function(ctx, camera, dTime) {
   }
   
   var loc   = this.location;
-  var v     = this.velocity;
   var scale = dTime / 1000;
   
-  loc.x += v.x * (scale);
-  loc.y += v.y * (scale);
+  //loc.x += v.x * (scale);
+  //loc.y += v.y * (scale);
   
   if (this.inScene(camera)) {
     this.draw(ctx, camera, dTime);
@@ -89,20 +98,39 @@ Engine.GameObj.prototype.unBind = function(event) {
   }
 };
 
+Engine.GameObj.prototype.onCollision = function(collider) {
+};
+
 Engine.GameObj.prototype.draw = function(ctx, camera, dTime) {
-  this.width = this.drawable.animations.hDelta;
-  this.height = this.drawable.image.height;
+  var d = this.drawable;
+  
+  this.width = d.animations.hDelta;
+  this.height = d.image.height;
   
   if (typeof this.onDraw == 'function') {
     this.onDraw(ctx, camera, dTime);
   }
   
-  var d = this.drawable;
   if (d != null) {
     var dLoc = d.location;
     var loc = this.location;
-    dLoc.x = loc.x - camera.x1();
-    dLoc.y = loc.y - camera.y1();
+    var lx = loc.x;
+    var ly = loc.y;
+    var w = this.width;
+    var h = this.height;
+    var pi = 3.14159265;
+    
+    dLoc.x = lx - camera.x1();
+    dLoc.y = ly - camera.y1();
+    
+    ctx.save();
+    
+    ctx.translate(lx + (w / 2), ly + (h / 2));
+    ctx.rotate((30 % 360) * pi / 180);
+    ctx.translate(-(lx + (w / 2)), -(ly + (h / 2)));
     d.draw(ctx, dTime);
+    
+    ctx.restore();
+    ctx.fillText("Rotation: " + this.rotation, this.location.x, this.location.y + this.height + 4);
   }
 };

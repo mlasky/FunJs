@@ -62,7 +62,7 @@ Engine.Sprite.prototype.draw = function(ctx, dTime) {
   if (!this.loaded) {
     retry = window.setTimeout(function() { self.draw(ctx, dTime); }, 500);
     return;
-  }
+  } 
   
   this.updateAnimations(dTime);
   
