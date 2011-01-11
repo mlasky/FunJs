@@ -9,11 +9,12 @@ Engine.GameObj.prototype.init = function(obj) {
   this.name           = obj.name;
   this.location       = Engine.Point(obj.x, obj.y);
   this.uid            = "" + Engine.getTime();
-  this.width          = obj.width       || 0;
-  this.height         = obj.height      || 0;
+  this.width          = 0;
+  this.height         = 0;
   this.fixed          = obj.fixed       || false;
   this.friction       = obj.friction    || 0.0;
-  this.density        = obj.density     || 0.0;
+  this.density        = obj.density     || 0.5;
+  this.rotation       = obj.rotation    || 0;
   this.restitution    = obj.restitution || 0;
   this.parent         = obj.parent      || null;
   this.uData          = obj.uData       || {};
@@ -25,13 +26,12 @@ Engine.GameObj.prototype.init = function(obj) {
   
   var drawable = obj.drawable;
   if (drawable) {
+    this.width = drawable.width  / Engine.density;
+    this.height = drawable.height;
+    
     this.drawable = new Engine[drawable.type](drawable.image, 
       new Engine.Sprite.Animation(drawable.animation.time, drawable.animation.frames));
     
-    this.width = (drawable.image.width / drawable.numFrames)  / Engine.density;
-    this.height = drawable.image.height;
-    
-    var l = this.location;
     this.cBody = Engine.Physics.BoxBody(this);
   }
 };
@@ -41,11 +41,9 @@ Engine.GameObj.prototype.tick = function(ctx, camera, dTime) {
     this.onTick(ctx, camera, dTime);
   }
   
-  var loc   = this.location;
-  var scale = dTime / 1000;
-  
-  //loc.x += v.x * (scale);
-  //loc.y += v.y * (scale);
+  var pos = this.cBody.GetCenterPosition();
+  this.location.x = pos.x;
+  this.location.y = pos.y;
   
   if (this.inScene(camera)) {
     this.draw(ctx, camera, dTime);
@@ -66,7 +64,12 @@ Engine.GameObj.prototype.catchEvent = function(event) {
   var x2  = lx + this.width;
   var y2  = ly + this.height;
   
-  return cX > x1 && cX < x2 && cY > y1 && cY < y2;
+  var ret = cX > x1 && cX < x2 && cY > y1 && cY < y2;
+  
+  if (typeof this.onCatchEvent == 'function') {
+    ret = ret && this.onCatchEvent(event);
+  }
+  return ret;
 };
 
 Engine.GameObj.prototype.inScene = function(camera) {
@@ -101,6 +104,14 @@ Engine.GameObj.prototype.unBind = function(event) {
 Engine.GameObj.prototype.onCollision = function(collider) {
 };
 
+Engine.GameObj.prototype.setPosition = function(x, y) {
+  if (this.cBody) {
+    this.cBody.SetCenterPosition(new b2Vec2(x, y), this.rotation);
+    this.location.x = x;
+    this.location.y = y;
+  }
+};
+
 Engine.GameObj.prototype.draw = function(ctx, camera, dTime) {
   var d = this.drawable;
   
@@ -126,11 +137,12 @@ Engine.GameObj.prototype.draw = function(ctx, camera, dTime) {
     ctx.save();
     
     ctx.translate(lx + (w / 2), ly + (h / 2));
-    ctx.rotate((30 % 360) * pi / 180);
+    ctx.rotate(-((this.rotation) * pi / 180));
     ctx.translate(-(lx + (w / 2)), -(ly + (h / 2)));
     d.draw(ctx, dTime);
     
     ctx.restore();
-    ctx.fillText("Rotation: " + this.rotation, this.location.x, this.location.y + this.height + 4);
+    ctx.fillText("lx: " + lx + " ly: " + ly, this.location.x, this.location.y + this.height + 4);
+    ctx.fillText("cbx: " + this.cBody.m_position.x + " cby: " + this.cBody.m_position.y, this.location.x, this.location.y + this.height + 14);
   }
 };

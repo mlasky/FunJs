@@ -37,7 +37,8 @@ Engine.prototype.initEvents = function() {
 
 Engine.prototype.initPhysics = function() {
   this.world = Engine.Physics.World;
-}
+};
+
 Engine.prototype.loadObjects = function(resources) {
   // Load Game Objects
   var gameObjs = resources.gameObjs || [];
@@ -55,6 +56,34 @@ Engine.prototype.addGameObj = function(obj) {
   this.renderLayers[layer].push(obj);
 };
 
+Engine.prototype.getGameObjs = function() {
+  var numLayers = this.renderLayers.length;
+  var objs = [];
+  
+  for (var i = 0; i < numLayers; i++) {
+    var layer = this.renderLayers[i] || [];
+    var numObjs = layer.length;
+    for (var j = 0; j < numObjs; j++) {
+      objs.push(layer[j]);
+    }
+  }
+  return objs;
+};
+
+Engine.prototype.getGameObj = function(uid) {
+  var numLayers = this.renderLayers.length;
+  var objs = [];
+  
+  for (var i = 0; i < numLayers; i++) {
+    var layer = this.renderLayers[i] || [];
+    var numObjs = layer.length;
+    for (var j = 0; j < numObjs; j++) {
+      var obj = layer[j];
+      if (obj.uid == uid) { return obj; }
+    }
+  }
+  return false;
+}
 Engine.prototype.clear = function() {
   var ctx = this.ctx;
   var c = this.canvas;
@@ -71,21 +100,27 @@ Engine.prototype.tick = function(self) {
     self.dTime    = time - self.time;
     self.time     = time;
     self.clear();
-
-    var numLayers = self.renderLayers.length;
     
-    for (var i = 0; i < numLayers; i++) {
-      var layer = self.renderLayers[i] || [];
-      var numObjs = layer.length;
-      Engine.calcCollisions(layer, numObjs);
-      for (var j = 0; j < numObjs; j++) {
-        var obj = layer[j];
-        obj.tick(self.ctx, self.camera, self.dTime);
-      }
-    }
+    var timeStep = 1.0/60
+    Engine.Physics.World.Step(timeStep, 1);
+    self.tickObjs(self);
+    
     self.fps++;
   } catch (e) {
     Engine.onError(e);
+  }
+};
+
+Engine.prototype.tickObjs = function(self) {
+  var numLayers = self.renderLayers.length;
+  
+  for (var i = 0; i < numLayers; i++) {
+    var layer = self.renderLayers[i] || [];
+    var numObjs = layer.length;
+    for (var j = 0; j < numObjs; j++) {
+      var obj = layer[j];
+      obj.tick(self.ctx, self.camera, self.dTime);
+    }
   }
 };
 
@@ -97,24 +132,6 @@ Engine.prototype.updateFps = function(self) {
 Engine.density = window.devicePixelRatio || 1;
 
 Engine.fps = 0;
-
-Engine.calcCollisions = function(objects, len) {
-  var obj;
-  var rest;
-  var simpleCollision = Engine.Collision.Simple;
-  
-  while (len--) {
-    obj = objects[len];
-    rest = len;
-    while (rest--) {
-      var collider = objects[rest];
-      if (collider && simpleCollision(obj, collider)) {
-        obj.onCollision(collider);
-        //collider.onCollision(obj);
-      }
-    }
-  }
-};
 
 Engine.Point = function(x, y) {
   return { 'x': x, 'y': y };

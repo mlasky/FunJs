@@ -7,10 +7,11 @@ var resources = {
   'gameObjs': [
     {
       'name': 'Plane', 
+      'uid': 'playerPlane',
       'layer': 10,
-      'x': 0,
+      'x': 100,
       'y': 0,
-      'rotation': 30,
+      'rotation': 0,
       'mass': 1, 
       'velocity': {
         'x': 200,
@@ -19,26 +20,8 @@ var resources = {
       'drawable': {
         'image': 'media/images/plane_sm.png',
         'type': 'Sprite',
-        'animation': {
-          'time': 1000,
-          'frames': 40
-        } 
-      }
-    },
-    {
-      'name': 'Plane', 
-      'layer': 10,
-      'x': 0,
-      'y': 100,
-      'rotation': 30,
-      'mass': 1, 
-      'velocity': {
-        'x': 100,
-        'y': 0
-      },
-      'drawable': {
-        'image': 'media/images/plane_sm.png',
-        'type': 'Sprite',
+        'width': 100,
+        'height': 33,
         'animation': {
           'time': 1000,
           'frames': 40

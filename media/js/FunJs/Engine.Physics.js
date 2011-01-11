@@ -8,10 +8,11 @@ Engine.Physics.createWorld = function() {
     worldAABB.maxVertex.Set(1000, 1000);
     var gravity = new b2Vec2(0, 300);
     var world = new b2World(worldAABB, gravity, true);
-    return world;
+    Engine.Physics.createGround(world);
   } catch (e) {
-    Engine.onError(e)
+    Engine.onError(e);
   }
+  return world;
 };
 
 Engine.Physics.BoxBody = function(obj) {
@@ -21,7 +22,7 @@ Engine.Physics.BoxBody = function(obj) {
   var height      = obj.height      || 0;
   var fixed       = obj.fixed       || false;
   var friction    = obj.friction    || 0.0;
-  var density     = obj.density     || 0.0;
+  var density     = obj.density     || 1.0;
   var restitution = obj.restitution || 0;
   var parent      = obj.parent      || null;
   var uData       = obj.uData       || {};
@@ -32,8 +33,8 @@ Engine.Physics.BoxBody = function(obj) {
   
   var boxSd         = new b2BoxDef();
   boxSd.friction    = friction;
-  boxSd.density     = density;
   boxSd.restitution = restitution;
+  boxSd.density     = density;
   
   if (fixed) { 
     boxSd.density = 0.0; 
@@ -46,6 +47,16 @@ Engine.Physics.BoxBody = function(obj) {
   boxBd.position.Set(x,y);
   
   return world.CreateBody(boxBd);
+};
+
+Engine.Physics.createGround = function(world) {
+  var groundSd = new b2BoxDef();
+  groundSd.extents.Set(1000, 50);
+  groundSd.restitution = 0.2;
+  var groundBd = new b2BodyDef();
+  groundBd.AddShape(groundSd);
+  groundBd.position.Set(-500, 300);
+  return world.CreateBody(groundBd);
 };
 
 Engine.Physics.World = Engine.Physics.createWorld();
