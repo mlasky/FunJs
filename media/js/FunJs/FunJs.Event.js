@@ -1,13 +1,13 @@
-var Engine = Engine || {};
-Engine.Event = {};
+var FunJs = FunJs || {};
+FunJs.Event = {};
 
-Engine.Event.Registry = {};
-Engine.Event.Registry.TouchStart = [];
-Engine.Event.Registry.TouchMove = [];
-Engine.Event.Registry.TouchEnd = [];
+FunJs.Event.Registry = {};
+FunJs.Event.Registry.TouchStart = [];
+FunJs.Event.Registry.TouchMove = [];
+FunJs.Event.Registry.TouchEnd = [];
 
-Engine.Event.TouchStart = function(event) {
-  var tsReg = Engine.Event.Registry.TouchStart;
+FunJs.Event.TouchStart = function(event) {
+  var tsReg = FunJs.Event.Registry.TouchStart;
   var len = tsReg.length;
   while (len--) {
     var obj = tsReg[len];
@@ -17,8 +17,8 @@ Engine.Event.TouchStart = function(event) {
   }
 };
 
-Engine.Event.TouchMove = function(event) {
-  var tmReg = Engine.Event.Registry.TouchMove;
+FunJs.Event.TouchMove = function(event) {
+  var tmReg = FunJs.Event.Registry.TouchMove;
   var len = tmReg.length;
   while (len--) {
     var obj = tmReg[len];
@@ -28,9 +28,8 @@ Engine.Event.TouchMove = function(event) {
   }
 };
 
-
-Engine.Event.TouchEnd = function(event) {
-  var teReg = Engine.Event.Registry.TouchEnd;
+FunJs.Event.TouchEnd = function(event) {
+  var teReg = FunJs.Event.Registry.TouchEnd;
   var len = teReg.length;
   while (len--) {
     var obj = teReg[len];

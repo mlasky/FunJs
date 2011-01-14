@@ -98,16 +98,18 @@
 
   <script src='media/js/box2d/dynamics/joints/b2RevoluteJointDef.js'></script>
 
-  <script src="media/js/FunJs/Engine.js" type="text/javascript" charset="utf-8"></script>
-  <script src="media/js/FunJs/Engine.Sprite.js" type="text/javascript" charset="utf-8"></script>
-  <script src="media/js/FunJs/Engine.Sprite.Animation.js" type="text/javascript" charset="utf-8"></script>
-  <script src="media/js/FunJs/Engine.Camera.js" type="text/javascript" charset="utf-8"></script>
-  <script src="media/js/FunJs/Engine.GameObj.js" type="text/javascript" charset="utf-8"></script>
-  <script src="media/js/FunJs/Engine.Event.js" type="text/javascript" charset="utf-8"></script>
-  <script src="media/js/FunJs/Engine.Physics.js" type="text/javascript" charset="utf-8"></script>
-  <script src="media/js/FunJs/Engine.Collision.js" type="text/javascript" charset="utf-8"></script>
+  <script src="media/js/FunJs/FunJs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="media/js/FunJs/FunJs.Physics.js" type="text/javascript" charset="utf-8"></script>
+  <script src="media/js/FunJs/FunJs.Animation.js" type="text/javascript" charset="utf-8"></script>
+  <script src="media/js/FunJs/FunJs.Event.js" type="text/javascript" charset="utf-8"></script>
+  <script src="media/js/FunJs/FunJs.GameObj.js" type="text/javascript" charset="utf-8"></script>
+  <script src="media/js/FunJs/FunJs.GameObj.Drawable.js" type="text/javascript" charset="utf-8"></script>
+  <script src="media/js/FunJs/FunJs.GameObj.Drawable.Sprite.js" type="text/javascript" charset="utf-8"></script>
+  <script src="media/js/FunJs/FunJs.Behavior.Draggable.js" type="text/javascript" charset="utf-8"></script>
+  <script src="media/js/FunJs/FunJs.Camera.js" type="text/javascript" charset="utf-8"></script>
+  
   <script src="media/js/AirplaneChampion/resources.js" type="text/javascript" charset="utf-8"></script>
-  <script src="media/js/AirplaneChampion/Plane.js" type="text/javascript" charset="utf-8"></script>
+  <script src="media/js/AirplaneChampion/FunJs.Plane.js" type="text/javascript" charset="utf-8"></script>
   
   <script type="text/javascript" charset="utf-8">
 
@@ -135,9 +137,9 @@
       var c = x$("#viewport").first();
       x$(c).attr("width", w);
       x$(c).attr("height", h);
-      var game = new Engine(c, resources);
+      var game = new FunJs(c, resources);
 	  } catch (e) {
-	    Engine.onError(e);
+	    FunJs.onError(e);
 	  }
 	}
     
