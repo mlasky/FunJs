@@ -20,6 +20,8 @@ FunJs = Class.create({
       this.loadObjects(resources);
       
       this.camera     = this.getGameObj("Camera");
+      this.camera.lookAt(this.getGameObj("Plane"));
+      
       this.run();
     } catch (e) {   this.onError(e);   }
   },
@@ -55,13 +57,10 @@ FunJs = Class.create({
   },
   
   initEvents: function() {
-    var $c = $(this.canvas);
-    $c.observe('onmousedown', FunJs.Event.DragStart);
-    $c.observe('onmousemove', FunJs.Event.Drag);
-    $c.observe('onmouseend', FunJs.Event.DragEnd);
-    $c.observe('touchstart', FunJs.Event.TouchStart);
-    $c.observe('touchmove', FunJs.Event.TouchMove);
-    $c.observe('touchend', FunJs.Event.TouchEnd);
+    var $c = x$(this.canvas);
+    $c.on('touchstart', FunJs.Event.TouchStart);
+    $c.on('touchmove', FunJs.Event.TouchMove);
+    $c.on('touchend', FunJs.Event.TouchEnd);
   },
   
   initPhysics: function(obj) {
@@ -132,8 +131,10 @@ FunJs = Class.create({
     var ctx = this.ctx;
     var c = this.canvas;
 
-    c.width = c.width;
+    
     ctx.fillStyle = "#000000";
+    ctx.fillRect(0, 0, c.width, c.height);
+    ctx.fillStyle = "#FFFFFF";
   },
   
   tickObjs: function(self) {

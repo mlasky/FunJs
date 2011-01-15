@@ -51,8 +51,9 @@ FunJs.GameObj = Class.create({
   
   catchEvent: function(event) {
     event   = event.touches[0];
-    var cX  = event.pageX; // Click x
-    var cY  = event.pageY; // Click y
+    var cam = this.engine.camera;
+    var cX  = event.pageX + cam.x1(); // Click x
+    var cY  = event.pageY + cam.y1(); // Click y
     
     return  cX > this.x1() && cX < this.x2() && 
             cY > this.y1() && cY < this.y2();
@@ -87,19 +88,19 @@ FunJs.GameObj = Class.create({
   },
   
   x1: function() {
-    return ~~(1 * (this.position.x - (this.width / 2)));
+    return ~~(this.position.x - (this.width / 2));
   },
   
   y1: function() {
-    return ~~(1 * (this.position.y - (this.height / 2)));
+    return ~~(this.position.y - (this.height / 2));
   },
   
   x2: function() {
-    return ~~(1 * (this.position.x + (this.width / 2)));
+    return ~~(this.position.x + (this.width / 2));
   },
   
   y2: function() {
-    return ~~(1 * (this.position.y + (this.height / 2)));
+    return ~~(this.position.y + (this.height / 2));
   },
   
   onCollision: function(collider) {},

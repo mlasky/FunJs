@@ -53,10 +53,12 @@ FunJs.GameObj.Drawable = Class.create(FunJs.GameObj, {
     try {
       $super(ctx);
       
+      var cam     = this.engine.camera;
+      
       ctx.save();
-      ctx.translate(x, y);
+      ctx.translate(x - cam.x1(), y - cam.y1());
       ctx.rotate(this.rotation);
-      ctx.translate(-x, -y);
+      ctx.translate(-(x - cam.x1()), -(y - cam.y1()));
 
       var sPoint  = this.sPoint;
       var sRect   = this.sRect;
@@ -66,7 +68,7 @@ FunJs.GameObj.Drawable = Class.create(FunJs.GameObj, {
       ctx.drawImage(this.image, 
                     sPoint.x,     sPoint.y, 
                     sRect.width,  sRect.height, 
-                    dPoint.x,     dPoint.y,  
+                    dPoint.x - cam.x1(), dPoint.y - cam.y1(),  
                     dRect.width,  dRect.height);
       ctx.restore();
     } catch(e) {

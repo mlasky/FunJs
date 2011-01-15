@@ -14,9 +14,6 @@ FunJs.Plane = Class.create(FunJs.GameObj.Drawable.Sprite, {
     this.bind('TouchStart');
     this.bind('TouchMove');
     this.bind('TouchEnd');
-    this.bind('DragStart');
-    this.bind('Drag');
-    this.bind('DragEnd');
   },
   
   tick: function($super, ctx, camera, dTime) {
@@ -30,22 +27,6 @@ FunJs.Plane = Class.create(FunJs.GameObj.Drawable.Sprite, {
     var width = this.width;
     var height = this.height;
     
-    if (this.resetKinematic) {
-      this.kinematic = !this.kinematic;
-      this.resetKinematic = false;
-    }
-    
-    if (p.x > 480 + (width * 2)) {
-      this.kinematic = true;
-      this.resetKinematic = true;
-      this.position.x = 0 - width;
-    }
-
-    if (p.x < (0) - (width * 2)) {
-      this.kinematic = true;
-      this.resetKinematic = true;
-      this.position.x = 480 + width;
-    }
   },
   
   draw: function($super, ctx, camera, dTime) {
@@ -66,6 +47,8 @@ FunJs.Plane = Class.create(FunJs.GameObj.Drawable.Sprite, {
 
     var dx = (p.x - t.px) * (2000 / dTime);
     var dy = (p.y - t.py) * (2000 / dTime);
+    
+    this.engine.camera.lookAt(this);
 
     this.cBody.SetLinearVelocity(new b2Vec2(dx,dy));
   }

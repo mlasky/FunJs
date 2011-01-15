@@ -15,8 +15,7 @@
 	<link rel="stylesheet" href="reset.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	
 	<!-- If you application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
-	<script type="text/javascript" charset="utf-8" src="media/js/phonegap.js"></script>
-  
+	
   <script src="media/js/xui-core-1.0.0.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="media/js/xui-more-1.0.0.js" type="text/javascript" charset="utf-8"></script>
   <script src="media/js/prototype-1.6.0.2.js" type="text/javascript" charset="utf-8"></script>
@@ -115,38 +114,29 @@
   <script type="text/javascript" charset="utf-8">
 
 
-	// If you want to prevent dragging, uncomment this section
-	
-	function preventBehavior(e) 
-	{ 
-      e.preventDefault(); 
-    };
-	document.addEventListener("touchmove", preventBehavior, false);
-	
-	
-	function onBodyLoad()
-	{
-		document.addEventListener("deviceready",onDeviceReady,false);
-	}
-	
-	/* When this function is called, PhoneGap has been initialized and is ready to roll */
-	function onDeviceReady()
-	{
-	  try {
-	    var h = window.innerHeight;
-      var w = window.innerWidth;
+  // If you want to prevent dragging, uncomment this section
+
+  function preventBehavior(e) 
+  { 
+    e.preventDefault(); 
+  };
+  document.addEventListener("touchmove", preventBehavior, false);
+
+
+  function onBodyLoad()
+  {
+    try {
       var c = x$("#viewport").first();
-      x$(c).attr("width", w);
-      x$(c).attr("height", h);
       var game = new FunJs(c, resources);
-	  } catch (e) {
-	    FunJs.onError(e);
-	  }
-	}
+    } catch (e) {
+      FunJs.onError(e);
+    }
+  }
+
     
     </script>
   </head>
   <body onload="onBodyLoad()">
-  	<canvas id="viewport" width="320" height="240"></canvas>
+  	<canvas id="viewport" width="640" height="480"></canvas>
   </body>
 </html>

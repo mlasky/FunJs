@@ -9,6 +9,10 @@ FunJs.Behavoir.Draggable = {
   onTouchStart: function(event) {
     var t = this.touch;
     var l = this.position;
+    var cam = this.engine.camera;
+    
+    cam.lookAt(false);
+    
     this.touched = true;
 
     this.kinematic = true;
@@ -21,16 +25,17 @@ FunJs.Behavoir.Draggable = {
     if (this.touched) {
       event = event.touches[0];
       this.isTouchMoving = true;
-
-      var t = this.touch;
-      var p = this.position;
+      
+      var cam = this.engine.camera;
+      var t   = this.touch;
+      var p   = this.position;
 
       t.px = p.x;
       t.py = p.y;
       t.ptime = this.engine.getTime();
 
-      this.position.x = ~~(1 * (event.pageX));
-      this.position.y = ~~(1 * (event.pageY));
+      this.position.x = cam.x1() + event.pageX;
+      this.position.y = cam.y1() + event.pageY;
     }
   }  
 };
