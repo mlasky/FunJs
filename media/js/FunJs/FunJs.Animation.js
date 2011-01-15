@@ -49,7 +49,7 @@ FunJs.Animation = Class.create({
     var fTime     = anim.fTime;
     
     if (tslf > fTime) {
-      this.cAnimation.cFrame += parseInt(tslf / fTime, 10);
+      this.cAnimation.cFrame += ~~(1 * (tslf / fTime));
       this.cAnimation.tslf = 0;
 
       if (anim.cFrame > numFrames) {

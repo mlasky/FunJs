@@ -879,7 +879,7 @@ b2BroadPhase.BinarySearch = function(bounds, count, value)
 		var high = count - 1;
 		while (low <= high)
 		{
-			var mid = Math.floor((low + high) / 2);
+			var mid = ~~(1 * ((low + high) / 2));
 			if (bounds[mid].value > value)
 			{
 				high = mid - 1;

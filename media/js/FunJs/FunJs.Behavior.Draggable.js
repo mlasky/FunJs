@@ -29,8 +29,8 @@ FunJs.Behavoir.Draggable = {
       t.py = p.y;
       t.ptime = this.engine.getTime();
 
-      this.position.x = parseInt(event.pageX, 10);
-      this.position.y = parseInt(event.pageY, 10);
+      this.position.x = ~~(1 * (event.pageX));
+      this.position.y = ~~(1 * (event.pageY));
     }
   }  
 };

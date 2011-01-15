@@ -126,11 +126,7 @@
 	function onBodyLoad()
 	{
 		try {
-	    var h = window.innerHeight;
-      var w = window.innerWidth;
-      var c = x$("#viewport").first();
-      x$(c).attr("width", w);
-      x$(c).attr("height", h);
+	    var c = x$("#viewport").first();
       var game = new FunJs(c, resources);
 	  } catch (e) {
 	    FunJs.onError(e);
@@ -141,6 +137,6 @@
     </script>
   </head>
   <body onload="onBodyLoad()">
-  	<canvas id="viewport" width="320" height="240"></canvas>
+  	<canvas id="viewport" width="640" height="480"></canvas>
   </body>
 </html>

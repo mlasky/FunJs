@@ -87,19 +87,19 @@ FunJs.GameObj = Class.create({
   },
   
   x1: function() {
-    return parseInt(this.position.x - (this.width / 2), 10);
+    return ~~(1 * (this.position.x - (this.width / 2)));
   },
   
   y1: function() {
-    return parseInt(this.position.y - (this.height / 2), 10);
+    return ~~(1 * (this.position.y - (this.height / 2)));
   },
   
   x2: function() {
-    return parseInt(this.position.x + (this.width / 2), 10);
+    return ~~(1 * (this.position.x + (this.width / 2)));
   },
   
   y2: function() {
-    return parseInt(this.position.y + (this.height / 2), 10);
+    return ~~(1 * (this.position.y + (this.height / 2)));
   },
   
   onCollision: function(collider) {},

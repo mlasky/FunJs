@@ -26,7 +26,7 @@ FunJs = Class.create({
   
   run: function() {
     try {
-      window.setInterval(this.tick, 0, this);
+      window.setInterval(this.tick, 25, this);
       window.setInterval(this.updateFps, 1000, this);
     } catch (e) {
       this.onError(e);
@@ -48,8 +48,8 @@ FunJs = Class.create({
       self.fps++;
       
       self.debugMsgs.push("Fps: " + self.Fps);
-      self.debugMsgs.push("Camera: " + self.camera.position.x + "," + self.camera.position.y);
-      self.debugMsgs.push("dTime: " + self.dTime);
+      //self.debugMsgs.push("Camera: " + self.camera.position.x + "," + self.camera.position.y);
+      //self.debugMsgs.push("dTime: " + self.dTime);
       
     } catch (e) { self.onError(e); }
   },
@@ -132,9 +132,8 @@ FunJs = Class.create({
     var ctx = this.ctx;
     var c = this.canvas;
 
+    c.width = c.width;
     ctx.fillStyle = "#000000";
-    ctx.fillRect(0, 0, c.width, c.height);
-    ctx.fillStyle = "#FFFFFF";
   },
   
   tickObjs: function(self) {
