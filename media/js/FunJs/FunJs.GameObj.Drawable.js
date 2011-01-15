@@ -30,10 +30,8 @@ FunJs.GameObj.Drawable = Class.create(FunJs.GameObj, {
   },
   
   tick: function($super, dTime, ctx) {
-    $super(dTime);
-    if (this.inScene()) {
-      this.draw(ctx);
-    }
+    $super(dTime, ctx);
+    this.updateDrawRects();
   },
   
   draw: function($super, ctx) {
@@ -57,7 +55,7 @@ FunJs.GameObj.Drawable = Class.create(FunJs.GameObj, {
       
       ctx.save();
       ctx.translate(x, y);
-      ctx.rotate(-((this.rotation) * pi / 180));
+      ctx.rotate(this.rotation);
       ctx.translate(-x, -y);
 
       var sPoint  = this.sPoint;
@@ -75,5 +73,10 @@ FunJs.GameObj.Drawable = Class.create(FunJs.GameObj, {
       ctx.restore();
       this.engine.onError(e);
     }
+  },
+  
+  updateDrawRects: function() {
+    this.dPoint    = new FunJs.Physics.Vector2D(this.x1(), this.y1());
+    this.dRect     = new FunJs.Physics.Rectangle(this.width, this.height);
   }
 });

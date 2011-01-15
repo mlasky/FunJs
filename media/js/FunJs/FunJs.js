@@ -10,6 +10,7 @@ FunJs = Class.create({
     this.fps          = 0;
     this.renderLayers = [];
     this.gameObjs     = false;
+    this.debugMsgs    = [];
     
     this.world = resources.World || {};
     
@@ -39,20 +40,28 @@ FunJs = Class.create({
       self.time     = time;
       self.clear();
 
-      var timeStep = 1.0/60;
+      var timeStep = 1.0/40;
       self.world.step(timeStep, 1);
       self.tickObjs(self);
       self.drawDebug();
       
       self.fps++;
+      
+      self.debugMsgs.push("Fps: " + self.Fps);
+      self.debugMsgs.push("Camera: " + self.camera.position.x + "," + self.camera.position.y);
+      self.debugMsgs.push("dTime: " + self.dTime);
+      
     } catch (e) { self.onError(e); }
   },
   
   initEvents: function() {
-    var $c = x$(this.canvas);
-    $c.on('touchstart', FunJs.Event.TouchStart);
-    $c.on('touchmove', FunJs.Event.TouchMove);
-    $c.on('touchend', FunJs.Event.TouchEnd);
+    var $c = $(this.canvas);
+    $c.observe('onmousedown', FunJs.Event.DragStart);
+    $c.observe('onmousemove', FunJs.Event.Drag);
+    $c.observe('onmouseend', FunJs.Event.DragEnd);
+    $c.observe('touchstart', FunJs.Event.TouchStart);
+    $c.observe('touchmove', FunJs.Event.TouchMove);
+    $c.observe('touchend', FunJs.Event.TouchEnd);
   },
   
   initPhysics: function(obj) {
@@ -70,8 +79,16 @@ FunJs = Class.create({
   },
   
   drawDebug: function() {
-    this.ctx.fillText("Fps: " + this.Fps, 300, 20);
-    this.ctx.fillText("Camera: " + this.camera.position.x + "," + this.camera.position.y, 300,30);
+    var x = 300;
+    var y = 20;
+    var msgs = this.debugMsgs;
+    var len = msgs.length;
+    
+    for (var i = 0; i < len; i++) {
+      this.ctx.fillText(this.debugMsgs[i], x, y + (i * 10));
+    }
+    
+    this.debugMsgs = [];
   },
   
   addGameObj: function(obj, name) {
@@ -152,5 +169,5 @@ FunJs = Class.create({
   
   Density: window.devicePixelRatio || 1,
   Fps: 0,
-  Debug: true
+  Debug: false
 });

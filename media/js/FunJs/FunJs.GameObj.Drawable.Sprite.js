@@ -17,17 +17,12 @@ FunJs.GameObj.Drawable.Sprite = Class.create(FunJs.GameObj.Drawable, {
   
   tick: function($super, dTime, ctx) {
     this.animations.tick(dTime);
-    this.updateDrawRects();
-    
     $super(dTime, ctx);
   },
   
-  updateDrawRects: function() {
+  updateDrawRects: function($super) {
+    $super();
     this.sPoint = this.animations.sPoint;
     this.sRect  = this.animations.sRect;
-    
-    this.dPoint    = new FunJs.Physics.Vector2D(this.x1(), this.y1());
-    this.dRect     = new FunJs.Physics.Rectangle(this.width, this.height);
-    
   }
 });

@@ -14,6 +14,9 @@ FunJs.Plane = Class.create(FunJs.GameObj.Drawable.Sprite, {
     this.bind('TouchStart');
     this.bind('TouchMove');
     this.bind('TouchEnd');
+    this.bind('DragStart');
+    this.bind('Drag');
+    this.bind('DragEnd');
   },
   
   tick: function($super, ctx, camera, dTime) {

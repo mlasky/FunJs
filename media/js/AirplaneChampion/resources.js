@@ -31,9 +31,9 @@ var resources = {
       width: 100,
       height: 33,
       kinematic: false,
-      density: 0.5,
-      restitution: 0.5,
-      friction: 0.5,
+      density: 0.3,
+      restitution: 0.2,
+      friction: 0.8,
       rotation: 0,
       cBodyData: [
         [-45, -13],
@@ -57,6 +57,272 @@ var resources = {
             def: true
           }
         }
+      }
+    },
+    Cube: {
+      type: "Crate",
+      layer: 2,
+      width: 20,
+      height: 20,
+      kinematic: false,
+      density: 1.0,
+      restitution: 0,
+      friction: 0.8,
+      rotation: 0,
+      cBodyData: [
+        [-10, -10],
+        [ 10, -10],
+        [ 10,  10],
+        [-10,  10]
+      ],
+      position: {
+        x: 300,
+        y: 170
+      },
+      drawable: {
+        src: "media/images/crate.jpg",
+        width: 20,
+        height: 20
+      }
+    },
+    Cube2: {
+      type: "Crate",
+      layer: 2,
+      width: 20,
+      height: 20,
+      kinematic: false,
+      density: 1.0,
+      restitution: 0,
+      friction: 0.8,
+      rotation: 0,
+      cBodyData: [
+        [-10, -10],
+        [ 10, -10],
+        [ 10,  10],
+        [-10,  10]
+      ],
+      position: {
+        x: 300,
+        y: 240
+      },
+      drawable: {
+        src: "media/images/crate.jpg",
+        width: 20,
+        height: 20
+      }
+    },
+    Cube3: {
+      type: "Crate",
+      layer: 2,
+      width: 20,
+      height: 20,
+      kinematic: false,
+      density: 1.0,
+      restitution: 0,
+      friction: 0.8,
+      rotation: 0,
+      cBodyData: [
+        [-10, -10],
+        [ 10, -10],
+        [ 10,  10],
+        [-10,  10]
+      ],
+      position: {
+        x: 300,
+        y: 220
+      },
+      drawable: {
+        src: "media/images/crate.jpg",
+        width: 20,
+        height: 20
+      }
+    },
+    Cube4: {
+      type: "Crate",
+      layer: 2,
+      width: 20,
+      height: 20,
+      kinematic: false,
+      density: 1.0,
+      restitution: 0,
+      friction: 0.8,
+      rotation: 0,
+      cBodyData: [
+        [-10, -10],
+        [ 10, -10],
+        [ 10,  10],
+        [-10,  10]
+      ],
+      position: {
+        x: 300,
+        y: 200
+      },
+      drawable: {
+        src: "media/images/crate.jpg",
+        width: 20,
+        height: 20
+      }
+    },
+    Cube5: {
+      type: "Crate",
+      src: "media/images/crate.jpg",
+      layer: 2,
+      width: 20,
+      height: 20,
+      kinematic: false,
+      density: 1.0,
+      restitution: 0,
+      friction: 0.8,
+      rotation: 0,
+      cBodyData: [
+        [-10, -10],
+        [ 10, -10],
+        [ 10,  10],
+        [-10,  10]
+      ],
+      position: {
+        x: 280,
+        y: 240
+      },
+      drawable: {
+        src: "media/images/crate.jpg",
+        width: 20,
+        height: 20
+      }
+    },
+    Cube6: {
+      type: "Crate",
+      src: "media/images/crate.jpg",
+      layer: 2,
+      width: 20,
+      height: 20,
+      kinematic: false,
+      density: 1.0,
+      restitution: 0,
+      friction: 0.8,
+      rotation: 0,
+      cBodyData: [
+        [-10, -10],
+        [ 10, -10],
+        [ 10,  10],
+        [-10,  10]
+      ],
+      position: {
+        x: 280,
+        y: 220
+      },
+      drawable: {
+        src: "media/images/crate.jpg",
+        width: 20,
+        height: 20
+      }
+    },
+    Cube7: {
+      type: "Crate",
+      src: "media/images/crate.jpg",
+      layer: 2,
+      width: 20,
+      height: 20,
+      kinematic: false,
+      density: 1.0,
+      restitution: 0,
+      friction: 0.8,
+      rotation: 0,
+      cBodyData: [
+        [-10, -10],
+        [ 10, -10],
+        [ 10,  10],
+        [-10,  10]
+      ],
+      position: {
+        x: 280,
+        y: 200
+      },
+      drawable: {
+        src: "media/images/crate.jpg",
+        width: 20,
+        height: 20
+      }
+    },
+    Cube8: {
+      type: "Crate",
+      src: "media/images/crate.jpg",
+      layer: 2,
+      width: 20,
+      height: 20,
+      kinematic: false,
+      density: 1.0,
+      restitution: 0,
+      friction: 0.8,
+      rotation: 0,
+      cBodyData: [
+        [-10, -10],
+        [ 10, -10],
+        [ 10,  10],
+        [-10,  10]
+      ],
+      position: {
+        x: 320,
+        y: 240
+      },
+      drawable: {
+        src: "media/images/crate.jpg",
+        width: 20,
+        height: 20
+      }
+    },
+    Cube9: {
+      type: "Crate",
+      src: "media/images/crate.jpg",
+      layer: 2,
+      width: 20,
+      height: 20,
+      kinematic: false,
+      density: 1.0,
+      restitution: 0,
+      friction: 0.8,
+      rotation: 0,
+      cBodyData: [
+        [-10, -10],
+        [ 10, -10],
+        [ 10,  10],
+        [-10,  10]
+      ],
+      position: {
+        x: 320,
+        y: 220
+      },
+      drawable: {
+        src: "media/images/crate.jpg",
+        width: 20,
+        height: 20
+      }
+    },
+    Cube10: {
+      type: "Crate",
+      src: "media/images/crate.jpg",
+      layer: 2,
+      width: 20,
+      height: 20,
+      kinematic: false,
+      density: 1.0,
+      restitution: 0,
+      friction: 0.8,
+      rotation: 0,
+      cBodyData: [
+        [-10, -10],
+        [ 10, -10],
+        [ 10,  10],
+        [-10,  10]
+      ],
+      position: {
+        x: 320,
+        y: 200
+      },
+      drawable: {
+        src: "media/images/crate.jpg",
+        width: 20,
+        height: 20
       }
     }
   }

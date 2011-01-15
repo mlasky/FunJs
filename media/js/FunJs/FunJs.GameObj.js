@@ -26,8 +26,11 @@ FunJs.GameObj = Class.create({
     }
   },
   
-  tick: function(dTime) {
+  tick: function(dTime, ctx) {
     this.updatePosition(dTime);
+    if (this.inScene()) {
+      this.draw(ctx);
+    }
   },
   
   addCollisionBody: function(obj) {
@@ -58,14 +61,12 @@ FunJs.GameObj = Class.create({
   inScene: function() {
     var camera  = this.engine.getActiveCamera();
     var pos     = this.position;
-    var loaded  = this.loaded;
     
     var dWidth  = this.width;
     var dHeight = this.height;
 
     return  pos.x >= camera.x1() - dWidth && pos.x <= camera.x2() + dWidth &&
-            pos.y >= camera.y1() - dHeight && pos.y <= camera.y2() + dHeight &&
-            loaded;
+            pos.y >= camera.y1() - dHeight && pos.y <= camera.y2() + dHeight;
   },
   
   bind: function(event) {
