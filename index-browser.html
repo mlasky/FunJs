@@ -19,6 +19,7 @@
   <script src="media/js/xui-core-1.0.0.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="media/js/xui-more-1.0.0.js" type="text/javascript" charset="utf-8"></script>
   <script src="media/js/prototype-1.6.0.2.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" src="media/js/FunJs/dep/glMatrix-0.9.5.min.js"></script>
   
 	<!-- box2djs -->
   <script src='media/js/box2d/common/b2Settings.js'></script>
@@ -112,29 +113,44 @@
   <script src="media/js/AirplaneChampion/FunJs.Crate.js" type="text/javascript" charset="utf-8"></script>
   
   <script type="text/javascript" charset="utf-8">
+    // If you want to prevent dragging, uncomment this section
+    function preventBehavior(e)  { 
+      e.preventDefault(); 
+    };
+    document.addEventListener("touchmove", preventBehavior, false);
 
 
-  // If you want to prevent dragging, uncomment this section
-
-  function preventBehavior(e) 
-  { 
-    e.preventDefault(); 
-  };
-  document.addEventListener("touchmove", preventBehavior, false);
-
-
-  function onBodyLoad()
-  {
-    try {
-      var c = x$("#viewport").first();
-      var game = new FunJs(c, resources);
-    } catch (e) {
-      FunJs.onError(e);
+    function onBodyLoad() {
+      try {
+        var c = x$("#viewport").first();
+        var game = new FunJs(c, resources);
+      } catch (e) {
+        FunJs.onError(e);
+      }
     }
-  }
-
+  </script>
     
-    </script>
+    
+  <script id="shader-fs" type="x-shader/x-fragment"> 
+    #ifdef GL_ES
+    precision highp float;
+    #endif
+
+    void main(void) {
+      gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+    }
+  </script> 
+
+  <script id="shader-vs" type="x-shader/x-vertex"> 
+    attribute vec3 aVertexPosition;
+
+    uniform mat4 uMVMatrix;
+    uniform mat4 uPMatrix;
+
+    void main(void) {
+      gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
+    }
+  </script>
   </head>
   <body onload="onBodyLoad()">
   	<canvas id="viewport" width="640" height="480"></canvas>

@@ -22,7 +22,7 @@ FunJs.GameObj.Drawable = Class.create(FunJs.GameObj, {
     
     if (this.image) {
       this.image.onload = function() {
-        self.loaded = true;
+        self.loaded = true
       };
     } else {
       this.loaded = true;
