@@ -5,80 +5,75 @@ FunJs.GameObj.Drawable = Class.create(FunJs.GameObj, {
   initialize: function($super, obj, name, engine) {
     $super(obj, name, engine);
     
-    var self        = this;
+    this.vertices = obj.vertices || [];
+    this.colors = obj.colors || [];
+    this.numItems = obj.numItems || 0;
+    this.itemSize = obj.itemSize || 0;
     
-    obj             = obj.drawable || {};
-    this.src        = obj.src || false;
-    this.image      = (obj.src)? new Image(): false;
-    this.image.src  = this.src;
-    
-    this.sRect      = new FunJs.Physics.Rectangle(this.width, this.height);
-    this.sPoint     = new FunJs.Physics.Vector2D(0, 0);
-    
-    this.dPoint    = new FunJs.Physics.Vector2D(this.x1(), this.y1());
-    this.dRect     = new FunJs.Physics.Rectangle(this.width, this.height);
-    
-    this.loaded     = false;
-    
-    if (this.image) {
-      this.image.onload = function() {
-        self.loaded = true
-      };
-    } else {
-      this.loaded = true;
-    }
+    console.log(this)
   },
   
-  tick: function($super, dTime, ctx) {
-    $super(dTime, ctx);
-    this.updateDrawRects();
+  tick: function($super, dTime, gl) {
+    $super(dTime, gl);
   },
   
-  draw: function($super, ctx) {
+  draw: function($super, gl) {
     var self    = this;
     var pos     = this.position;
     var x       = pos.x;
     var y       = pos.y;
     var width   = this.width;
     var height  = this.height;
-    var pi      = 3.14159265;
-    var retry;
-    
-    if (!this.image) { return; }
-    if (!this.loaded) {
-      retry = window.setTimeout(function() { self.draw(ctx, dTime); }, 50);
-      return;
-    }
     
     try {
-      $super(ctx);
+      $super(gl);
       
-      var cam     = this.engine.camera;
+      var engine                        = this.engine;
+      var cam                           = engine.camera;
+      var shaderProgram                 = engine.shaderProgram;
+      var mvMatrix                      = engine.mvMatrix;
+      var vertexPositionBuffer  = this.vertexPositionBuffer;
+      var vertexColorBuffer     = this.vertexColorBuffer;
       
-      ctx.save();
-      ctx.translate(x - cam.x1(), y - cam.y1());
-      ctx.rotate(this.rotation);
-      ctx.translate(-(x - cam.x1()), -(y - cam.y1()));
-
-      var sPoint  = this.sPoint;
-      var sRect   = this.sRect;
-      var dPoint  = this.dPoint;
-      var dRect   = this.dRect;
+      this.rotation = (this.rotation += 3) % 360;
+      mat4.translate(mvMatrix, [x, y, -7.0]);
+      mat4.rotate(mvMatrix, this.rotation * Math.PI / 180, [1, 1, 1]);
+      gl.bindBuffer(gl.ARRAY_BUFFER, vertexPositionBuffer);
+      gl.vertexAttribPointer( shaderProgram.vertexPositionAttribute, 
+                              vertexPositionBuffer.itemSize, 
+                              gl.FLOAT, false, 0, 0);
       
-      ctx.drawImage(this.image, 
-                    sPoint.x,     sPoint.y, 
-                    sRect.width,  sRect.height, 
-                    dPoint.x - cam.x1(), dPoint.y - cam.y1(),  
-                    dRect.width,  dRect.height);
-      ctx.restore();
+      gl.bindBuffer(gl.ARRAY_BUFFER, vertexColorBuffer);
+      gl.vertexAttribPointer( shaderProgram.vertexColorAttribute, 
+                              vertexColorBuffer.itemSize, 
+                              gl.FLOAT, false, 0, 0);
+      
+      
+      engine.setMatrixUniforms();
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, vertexPositionBuffer.numItems);
+      
     } catch(e) {
-      ctx.restore();
       this.engine.onError(e);
     }
   },
   
-  updateDrawRects: function() {
-    this.dPoint    = new FunJs.Physics.Vector2D(this.x1(), this.y1());
-    this.dRect     = new FunJs.Physics.Rectangle(this.width, this.height);
+  initBuffers: function(gl) {
+    
+    var vertexPositionBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, vertexPositionBuffer);
+
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(this.vertices), gl.STATIC_DRAW);
+    vertexPositionBuffer.itemSize = this.itemSize;
+    vertexPositionBuffer.numItems = this.numItems;
+
+    var vertexColorBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, vertexColorBuffer);
+    
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(this.colors), gl.STATIC_DRAW);
+    vertexColorBuffer.itemSize = 4;
+    vertexColorBuffer.numItems = this.numItems;
+    
+    this.vertexPositionBuffer = vertexPositionBuffer;
+    this.vertexColorBuffer = vertexColorBuffer;
   }
 });

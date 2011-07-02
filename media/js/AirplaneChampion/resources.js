@@ -25,64 +25,33 @@ var resources = {
       width: 480,
       height: 320 
     },
-    Plane: {
-      type: "Plane",
-      layer: 2,
-      width: 100,
-      height: 33,
-      kinematic: false,
-      density: 0.3,
-      restitution: 0.2,
-      friction: 0.8,
-      rotation: 0,
-      cBodyData: [
-        [-45, -13],
-        [-5,  -10],
-        [ 45,  10],
-        [-40,  10],
-        [-40,  -5]
-      ],
-      position: {
-        x: 150,
-        y: 50
-      },
-      drawable: {
-        src: "media/images/plane_sm.png",
-        width: 100,
-        height: 33,
-        animations: {
-          Idle: {
-            time: 1000,
-            numFrames: 40,
-            def: true
-          }
-        }
-      }
-    },
     Cube: {
       type: "Crate",
       layer: 2,
       width: 59,
       height: 59,
-      kinematic: false,
+      kinematic: true,
       density: 1.0,
       restitution: 0,
       friction: 0.8,
       rotation: 0,
-      cBodyData: [
-        [-30, -30],
-        [ 30, -30],
-        [ 30,  30],
-        [-30,  30]
+      numItems: 4,
+      itemSize: 3,
+      vertices: [
+         1.0,  1.0,  0.0,
+        -1.0,  1.0,  0.0,
+         1.0, -1.0,  0.0,
+        -1.0, -1.0,  0.0
+      ],
+      colors: [
+          1.0, 1.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 1.0, 0.0, 1.0
       ],
       position: {
-        x: 300,
-        y: -100
-      },
-      drawable: {
-        src: "media/images/crate.jpg",
-        width: 60,
-        height: 60
+        x: -1.5,
+        y: 0
       }
     },
     Cube2: {
@@ -90,25 +59,26 @@ var resources = {
       layer: 2,
       width: 59,
       height: 59,
-      kinematic: false,
+      kinematic: true,
       density: 1.0,
       restitution: 0,
       friction: 0.8,
       rotation: 0,
-      cBodyData: [
-        [-30, -30],
-        [ 30, -30],
-        [ 30,  30],
-        [-30,  30]
+      numItems: 3,
+      itemSize: 3,
+      vertices: [
+           0.0,  1.0,  0.0,
+          -1.0, -1.0,  0.0,
+           1.0, -1.0,  0.0
+      ],
+      colors: [
+          1.0, 0.0, 0.0, 1.0,
+          0.0, 1.0, 0.0, 1.0,
+          0.0, 0.0, 1.0, 1.0
       ],
       position: {
-        x: 300,
-        y: -200
-      },
-      drawable: {
-        src: "media/images/crate.jpg",
-        width: 60,
-        height: 60
+        x: 2.0,
+        y: 0
       }
     }
   }

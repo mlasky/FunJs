@@ -1,5 +1,4 @@
-var FunJs = FunJs || {};
-FunJs = Class.create({
+var FunJs = Class.create({
   
   initialize: function(canvas, resources) {
     this.canvas       = canvas;
@@ -44,30 +43,14 @@ FunJs = Class.create({
       self.clear();
 
       var timeStep = 1.0/40;
-      //self.world.step(timeStep, 1);
-      //self.tickObjs(self);
+      self.world.step(timeStep, 1);
+      self.tickObjs(self);
       //self.drawDebug();
       
-      gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
-      gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-
       // mat4 from glMatrix-0.9.5.min.js
       mat4.perspective(45, gl.viewportWidth / gl.viewportHeight, 0.1, 100.0, self.pMatrix);
 
       mat4.identity(self.mvMatrix);
-
-      mat4.translate(self.mvMatrix, [-1.5, 0.0, -7.0]);
-      gl.bindBuffer(gl.ARRAY_BUFFER, self.triangleVertexPositionBuffer);
-      gl.vertexAttribPointer(self.shaderProgram.vertexPositionAttribute, self.triangleVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
-      self.setMatrixUniforms();
-      gl.drawArrays(gl.TRIANGLES, 0, self.triangleVertexPositionBuffer.numItems);
-
-      mat4.translate(self.mvMatrix, [3.0, 0.0, 0.0]);
-      gl.bindBuffer(gl.ARRAY_BUFFER, self.squareVertexPositionBuffer);
-      gl.vertexAttribPointer(self.shaderProgram.vertexPositionAttribute, self.squareVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
-      self.setMatrixUniforms();
-      gl.drawArrays(gl.TRIANGLE_STRIP, 0, self.squareVertexPositionBuffer.numItems);
-      
       self.fps++;
       
       //self.debugMsgs.push("Fps: " + self.Fps);
@@ -90,6 +73,7 @@ FunJs = Class.create({
     this.gl = gl;
     this.mvMatrix = mat4.create();
     this.pMatrix = mat4.create();
+    this.mvMatrixStack = [];
     
     this.initShaders();
     this.initBuffers();
@@ -117,6 +101,9 @@ FunJs = Class.create({
     shaderProgram.vertexPositionAttribute = gl.getAttribLocation(shaderProgram, "aVertexPosition");
     gl.enableVertexAttribArray(shaderProgram.vertexPositionAttribute);
 
+    shaderProgram.vertexColorAttribute = gl.getAttribLocation(shaderProgram, "aVertexColor");
+    gl.enableVertexAttribArray(shaderProgram.vertexColorAttribute);
+    
     shaderProgram.pMatrixUniform = gl.getUniformLocation(shaderProgram, "uPMatrix");
     shaderProgram.mvMatrixUniform = gl.getUniformLocation(shaderProgram, "uMVMatrix");
     
@@ -125,31 +112,16 @@ FunJs = Class.create({
   
   initBuffers: function() {
     var gl = this.gl;
-    var triangleVertexPositionBuffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer);
-    var vertices = [
-         0.0,  1.0,  0.0,
-        -1.0, -1.0,  0.0,
-         1.0, -1.0,  0.0
-    ];
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
-    triangleVertexPositionBuffer.itemSize = 3;
-    triangleVertexPositionBuffer.numItems = 3;
-
-    var squareVertexPositionBuffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, squareVertexPositionBuffer);
-    vertices = [
-         1.0,  1.0,  0.0,
-        -1.0,  1.0,  0.0,
-         1.0, -1.0,  0.0,
-        -1.0, -1.0,  0.0
-    ];
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
-    squareVertexPositionBuffer.itemSize = 3;
-    squareVertexPositionBuffer.numItems = 4;
     
-    this.triangleVertexPositionBuffer = triangleVertexPositionBuffer;
-    this.squareVertexPositionBuffer = squareVertexPositionBuffer;
+    var gameObjs = this.getGameObjs() || [];
+    
+    var len   = gameObjs.length;
+
+    for (var i = 0; i < len; i++) {
+      if (typeof gameObjs[i].initBuffers === 'function') {
+        gameObjs[i].initBuffers(gl);
+      }
+    }
   },
   
   setMatrixUniforms: function() {
@@ -184,9 +156,7 @@ FunJs = Class.create({
     var k = shaderScript.firstChild;
 
     while (k) {
-        if (k.nodeType == 3) {
-            str += k.textContent;
-        }
+        if (k.nodeType == 3) { str += k.textContent; }
         k = k.nextSibling;
     }
     
@@ -208,7 +178,20 @@ FunJs = Class.create({
 
     return shader;
   },
-    
+  
+  mvPushMatrix: function() {
+    var copy = mat4.create();
+    mat4.set(this.mvMatrix, copy);
+    this.mvMatrixStack.push(copy);
+  },
+
+  mvPopMatrix: function() {
+    if (this.mvMatrixStack.length == 0) {
+      throw "Invalid popMatrix!";
+    }
+    this.mvMatrix = this.mvMatrixStack.pop();
+  },
+  
   loadObjects: function(resources) {
     // Load Game Objects
     var gameObjs = resources.GameObjs || {};
@@ -269,22 +252,24 @@ FunJs = Class.create({
   },
   
   clear: function() {
-    var ctx = this.ctx;
-    var c = this.canvas;
-
+    var gl = this.gl;
     
-    //ctx.fillStyle = "#000000";
-    //ctx.fillRect(0, 0, c.width, c.height);
-    //ctx.fillStyle = "#FFFFFF";
+    gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    
   },
   
   tickObjs: function(self) {
     try {
-      var objs = this.getGameObjs();
-      var len = objs.length;
-    
+      var objs  = self.getGameObjs();
+      var len   = objs.length;
+      var dTime = self.dTime;
+      var gl    = this.gl;
+      
       for (var i = 0; i < len; i++) {
-        objs[i].tick(self.dTime, self.ctx);
+        self.mvPushMatrix();
+        objs[i].tick(dTime, gl);
+        self.mvPopMatrix();
       }
     } catch (e) {
       this.onError(e);
@@ -301,7 +286,8 @@ FunJs = Class.create({
   },
   
   onError: function(e) {
-    alert(e + "\nLine: " + e.line + "\nFile: " + e.sourceURL);
+    //alert(e + "\nLine: " + e.line + "\nFile: " + e.sourceURL);
+    console.log(e);
   },
   
   getTime: function() {

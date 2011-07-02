@@ -26,10 +26,10 @@ FunJs.GameObj = Class.create({
     }
   },
   
-  tick: function(dTime, ctx) {
+  tick: function(dTime, gl) {
     this.updatePosition(dTime);
     if (this.inScene()) {
-      this.draw(ctx);
+      this.draw(gl);
     }
   },
   
@@ -50,7 +50,7 @@ FunJs.GameObj = Class.create({
   },
   
   catchEvent: function(event) {
-    event   = event.touches[0];
+    event   = event.touches[0] || {};
     var cam = this.engine.camera;
     var cX  = event.pageX + cam.x1(); // Click x
     var cY  = event.pageY + cam.y1(); // Click y
@@ -105,11 +105,12 @@ FunJs.GameObj = Class.create({
   
   onCollision: function(collider) {},
   
-  draw: function(ctx) {
-    if (this.engine.Debug && this.cBody) {
+  draw: function(gl) {
+    /*if (this.engine.Debug && this.cBody) {
       for (var s = this.cBody.GetShapeList(); s != null; s = s.GetNext()) {
         this.engine.world.drawShape(s, ctx);
       }
     }
+    */
   }
 });

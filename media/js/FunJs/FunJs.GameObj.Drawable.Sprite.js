@@ -15,9 +15,9 @@ FunJs.GameObj.Drawable.Sprite = Class.create(FunJs.GameObj.Drawable, {
     this.animations = new FunJs.Animation(animations);
   },
   
-  tick: function($super, dTime, ctx) {
+  tick: function($super, dTime, gl) {
     this.animations.tick(dTime);
-    $super(dTime, ctx);
+    $super(dTime, gl);
   },
   
   updateDrawRects: function($super) {
