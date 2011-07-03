@@ -121,12 +121,8 @@
 
 
     function onBodyLoad() {
-      try {
-        var c = x$("#viewport").first();
-        var game = new FunJs(c, resources);
-      } catch (e) {
-        FunJs.onError(e);
-      }
+      var c = x$("#viewport").first();
+      var game = new FunJs(c, resources);
     }
   </script>
     
@@ -136,27 +132,30 @@
       precision highp float;
       #endif
 
-      varying vec4 vColor;
+      varying vec2 vTextureCoord;
+
+      uniform sampler2D uSampler;
 
       void main(void) {
-          gl_FragColor = vColor;
+          gl_FragColor = texture2D(uSampler, vec2(vTextureCoord.s, vTextureCoord.t));
       }
   </script>
 
   <script id="shader-vs" type="x-shader/x-vertex">
       attribute vec3 aVertexPosition;
-      attribute vec4 aVertexColor;
+      attribute vec2 aTextureCoord;
 
       uniform mat4 uMVMatrix;
       uniform mat4 uPMatrix;
 
-      varying vec4 vColor;
+      varying vec2 vTextureCoord;
 
       void main(void) {
           gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
-          vColor = aVertexColor;
+          vTextureCoord = aTextureCoord;
       }
   </script>
+
 
   </head>
   <body onload="onBodyLoad()">

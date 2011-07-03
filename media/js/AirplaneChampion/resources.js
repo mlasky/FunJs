@@ -36,26 +36,24 @@ var resources = {
       friction: 0.8,
       rotation: 0,
       vertexIndices: [
-          0, 1, 2, 1, 2, 3    // Front face
+          0, 1, 2, 0, 2, 3    // Front face
       ],
-      textures: [
-        'media/images/crate.jpg'
-      ],
+      textureFile: 'media/images/crate.jpg',
       textureCoords: [
-        [
-          0.0, 0.0,
-          1.0, 0.0,
-          1.0, 1.0,
-          0.0, 1.0
-        ]
+        0.0, 0.0,
+        1.0, 0.0,
+        1.0, 1.0,
+        0.0, 1.0
       ],
       numItems: 4,
       itemSize: 3,
       vertices: [
-         1.0,  1.0,  0.0,
-        -1.0,  1.0,  0.0,
-         1.0, -1.0,  0.0,
-        -1.0, -1.0,  0.0
+          // Front face
+          -1.0, -1.0,  1.0,
+           1.0, -1.0,  1.0,
+           1.0,  1.0,  1.0,
+          -1.0,  1.0,  1.0
+
       ],
       colors: [
           1.0, 1.0, 0.0, 1.0,

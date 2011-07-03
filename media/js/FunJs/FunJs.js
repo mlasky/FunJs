@@ -21,7 +21,7 @@ var FunJs = Class.create({
     this.initGl();
     
     this.camera     = this.getGameObj("Camera");
-    this.camera.lookAt(this.getGameObj("Plane"));
+    //this.camera.lookAt(this.getGameObj("Plane"));
     
     this.run();
   },
@@ -45,8 +45,8 @@ var FunJs = Class.create({
     
     // mat4 from glMatrix-0.9.5.min.js
     mat4.perspective(45, gl.viewportWidth / gl.viewportHeight, 0.1, 100.0, self.pMatrix);
-
     mat4.identity(self.mvMatrix);
+    
     self.fps++;
     
     //self.debugMsgs.push("Fps: " + self.Fps);
@@ -69,7 +69,8 @@ var FunJs = Class.create({
     
     this.initShaders();
     this.initBuffers();
-
+    this.initTextures();
+    
     gl.clearColor(0.0, 0.0, 0.0, 1.0);
     gl.enable(gl.DEPTH_TEST);
   },
@@ -93,29 +94,35 @@ var FunJs = Class.create({
     shaderProgram.vertexPositionAttribute = gl.getAttribLocation(shaderProgram, "aVertexPosition");
     gl.enableVertexAttribArray(shaderProgram.vertexPositionAttribute);
 
-    shaderProgram.vertexColorAttribute = gl.getAttribLocation(shaderProgram, "aVertexColor");
-    gl.enableVertexAttribArray(shaderProgram.vertexColorAttribute);
-    
-    //shaderProgram.textureCoordAttribute = gl.getAttribLocation(shaderProgram, "aTextureCoord");
-    //gl.enableVertexAttribArray(shaderProgram.textureCoordAttribute);
+    shaderProgram.textureCoordAttribute = gl.getAttribLocation(shaderProgram, "aTextureCoord");
+    gl.enableVertexAttribArray(shaderProgram.textureCoordAttribute);
        
     shaderProgram.pMatrixUniform = gl.getUniformLocation(shaderProgram, "uPMatrix");
     shaderProgram.mvMatrixUniform = gl.getUniformLocation(shaderProgram, "uMVMatrix");
-    //shaderProgram.samplerUniform = gl.getUniformLocation(shaderProgram, "uSampler");
+    shaderProgram.samplerUniform = gl.getUniformLocation(shaderProgram, "uSampler");
     
     this.shaderProgram = shaderProgram;
   },
   
   initBuffers: function() {
     var gl = this.gl;
-    
     var gameObjs = this.getGameObjs() || [];
     
-    var len   = gameObjs.length;
-
+    var len = gameObjs.length;
     for (var i = 0; i < len; i++) {
       if (typeof gameObjs[i].initBuffers === 'function') {
         gameObjs[i].initBuffers(gl);
+      }
+    }
+  },
+  
+  initTextures: function() {
+    var gl = this.gl;
+    var gameObjs = this.getGameObjs() || [];
+    
+    var len = gameObjs.length;
+    for (var i = 0; i < len; i++) {
+      if (typeof gameObjs[i].initTextures === 'function') {
         gameObjs[i].initTextures(gl);
       }
     }
