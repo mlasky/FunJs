@@ -89,7 +89,7 @@ FunJs.Physics.World = Class.create({
     var polyBd = new b2BodyDef();
     polyBd.position.Set(x, y);
     polyBd.AddShape(polySd);
-    
+    console.log(polyBd)
     return polyBd;
   },
   

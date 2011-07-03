@@ -21,7 +21,7 @@ var FunJs = Class.create({
     this.initGl();
     
     this.camera     = this.getGameObj("Camera");
-    //this.camera.lookAt(this.getGameObj("Plane"));
+    this.camera.lookAt(this.getGameObj("Cube2"));
     
     this.run();
   },
@@ -56,7 +56,7 @@ var FunJs = Class.create({
   
   initGl: function() {
     var canvas = this.canvas;
-    var gl = canvas.getContext("experimental-webgl");
+    var gl = WebGLDebugUtils.makeDebugContext(canvas.getContext("experimental-webgl"));
     gl.viewportWidth = canvas.width;
     gl.viewportHeight = canvas.height;
     
@@ -71,7 +71,7 @@ var FunJs = Class.create({
     this.initBuffers();
     this.initTextures();
     
-    gl.clearColor(0.0, 0.0, 0.0, 1.0);
+    gl.clearColor(1.0, 1.0, 1.0, 1.0);
     gl.enable(gl.DEPTH_TEST);
   },
   

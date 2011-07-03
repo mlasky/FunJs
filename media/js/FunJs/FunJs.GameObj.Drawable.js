@@ -38,10 +38,10 @@ FunJs.GameObj.Drawable = Class.create(FunJs.GameObj, {
     var vertexIndexBuffer        = this.vertexIndexBuffer;
     var vertexTextureCoordBuffer = this.vertexTextureCoordBuffer;
     
-    mat4.translate(mvMatrix, [x, -y, -10.0]);
+    mat4.translate(mvMatrix, [x, -y, -100.0]);
     
-    this.rotation = this.rotation + 5 % 360;
-    mat4.rotate(mvMatrix, this.rotation * Math.PI / 180, [1, 1, 1]);
+    
+    mat4.rotate(mvMatrix, this.rotation * Math.PI / 180, [0, 0, 1]);
     
     gl.bindBuffer(gl.ARRAY_BUFFER, vertexPositionBuffer);
     gl.vertexAttribPointer( shaderProgram.vertexPositionAttribute, 
@@ -90,7 +90,7 @@ FunJs.GameObj.Drawable = Class.create(FunJs.GameObj, {
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(this.vertices), gl.STATIC_DRAW);
     vertexPositionBuffer.itemSize = this.itemSize;
     vertexPositionBuffer.numItems = this.numItems;
-
+    
     var vertexTextureCoordBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, vertexTextureCoordBuffer);  
           
@@ -103,7 +103,7 @@ FunJs.GameObj.Drawable = Class.create(FunJs.GameObj, {
     
     gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(this.vertexIndices), gl.STATIC_DRAW);
     vertexIndexBuffer.itemSize = 1;
-    vertexIndexBuffer.numItems = 8;
+    vertexIndexBuffer.numItems = 6;
     
     this.vertexPositionBuffer      = vertexPositionBuffer;
     this.vertexTextureCoordBuffer  = vertexTextureCoordBuffer;
