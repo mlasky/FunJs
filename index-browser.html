@@ -2,8 +2,7 @@
 <html>
   <head>
 	<!-- Change this if you want to allow scaling -->
-    <meta name="viewport" content="width=default-width; user-scalable=no" />
-
+  
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 
     <title>PhoneGap</title>
@@ -12,7 +11,8 @@
 	<link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="ipad.css" type="text/css" />		
 	<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />		
 	-->
-	<link rel="stylesheet" href="reset.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="media/css/reset.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="media/css/funJs.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	
 	<!-- If you application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
 	
@@ -131,34 +131,35 @@
   </script>
     
     
-  <script id="shader-fs" type="x-shader/x-fragment"> 
-    #ifdef GL_ES
-    precision highp float;
-    #endif
+  <script id="shader-fs" type="x-shader/x-fragment">
+      #ifdef GL_ES
+      precision highp float;
+      #endif
 
-    varying vec4 vColor;
+      varying vec4 vColor;
 
-    void main(void) {
-      gl_FragColor = vColor;
-    }
-  </script> 
-
-  <script id="shader-vs" type="x-shader/x-vertex"> 
-    attribute vec3 aVertexPosition;
-    attribute vec4 aVertexColor;
-
-    uniform mat4 uMVMatrix;
-    uniform mat4 uPMatrix;
-
-    varying vec4 vColor;
-
-    void main(void) {
-      gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
-      vColor = aVertexColor;
-    }
+      void main(void) {
+          gl_FragColor = vColor;
+      }
   </script>
+
+  <script id="shader-vs" type="x-shader/x-vertex">
+      attribute vec3 aVertexPosition;
+      attribute vec4 aVertexColor;
+
+      uniform mat4 uMVMatrix;
+      uniform mat4 uPMatrix;
+
+      varying vec4 vColor;
+
+      void main(void) {
+          gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
+          vColor = aVertexColor;
+      }
+  </script>
+
   </head>
   <body onload="onBodyLoad()">
-  	<canvas id="viewport" width="640" height="480"></canvas>
+  	<canvas id="viewport"></canvas>
   </body>
 </html>

@@ -1,6 +1,9 @@
 var FunJs = Class.create({
   
   initialize: function(canvas, resources) {
+    canvas.width      = document.width;
+    canvas.height     = document.height;
+    
     this.canvas       = canvas;
     this.time         = this.getTime();
     this.dTime        = 0;
@@ -12,61 +15,50 @@ var FunJs = Class.create({
     
     this.world = resources.World || {};
     
-    try {
-      this.initEvents();
-      this.initPhysics(this);
-      this.loadObjects(resources);
-      this.initGl();
-      
-      this.camera     = this.getGameObj("Camera");
-      this.camera.lookAt(this.getGameObj("Plane"));
-      
-      this.run();
-    } catch (e) {   this.onError(e);   }
+    this.initEvents();
+    this.initPhysics(this);
+    this.loadObjects(resources);
+    this.initGl();
+    
+    this.camera     = this.getGameObj("Camera");
+    this.camera.lookAt(this.getGameObj("Plane"));
+    
+    this.run();
   },
   
   run: function() {
-    try {
-      window.setInterval(this.tick, 25, this);
-      window.setInterval(this.updateFps, 1000, this);
-    } catch (e) {
-      this.onError(e);
-    }
+    window.setInterval(this.tick, 25, this);
+    //window.setInterval(this.updateFps, 1000, this);
   },
   
   tick: function(self) {
-    try {
-      var time      = self.getTime();
-      var gl        = self.gl;
-      self.dTime    = time - self.time;
-      self.time     = time;
-      self.clear();
+    var time      = self.getTime();
+    var gl        = self.gl;
+    self.dTime    = time - self.time;
+    self.time     = time;
+    self.clear();
 
-      var timeStep = 1.0/40;
-      self.world.step(timeStep, 1);
-      self.tickObjs(self);
-      //self.drawDebug();
-      
-      // mat4 from glMatrix-0.9.5.min.js
-      mat4.perspective(45, gl.viewportWidth / gl.viewportHeight, 0.1, 100.0, self.pMatrix);
+    var timeStep = 1.0/40;
+    self.world.step(timeStep, 1);
+    self.tickObjs(self);
+    //self.drawDebug();
+    
+    // mat4 from glMatrix-0.9.5.min.js
+    mat4.perspective(45, gl.viewportWidth / gl.viewportHeight, 0.1, 100.0, self.pMatrix);
 
-      mat4.identity(self.mvMatrix);
-      self.fps++;
-      
-      //self.debugMsgs.push("Fps: " + self.Fps);
-      //self.debugMsgs.push("Camera: " + self.camera.position.x + "," + self.camera.position.y);
-      //self.debugMsgs.push("dTime: " + self.dTime);
-      
-    } catch (e) { self.onError(e); }
+    mat4.identity(self.mvMatrix);
+    self.fps++;
+    
+    //self.debugMsgs.push("Fps: " + self.Fps);
+    //self.debugMsgs.push("Camera: " + self.camera.position.x + "," + self.camera.position.y);
+    //self.debugMsgs.push("dTime: " + self.dTime);      
   },
   
   initGl: function() {
     var canvas = this.canvas;
-    try {
-      var gl = canvas.getContext("experimental-webgl");
-      gl.viewportWidth = canvas.width;
-      gl.viewportHeight = canvas.height;
-    } catch (e) { console.log(e); }
+    var gl = canvas.getContext("experimental-webgl");
+    gl.viewportWidth = canvas.width;
+    gl.viewportHeight = canvas.height;
     
     if (!gl) { alert("Could not initialise WebGL, sorry :-("); }
     
@@ -104,8 +96,12 @@ var FunJs = Class.create({
     shaderProgram.vertexColorAttribute = gl.getAttribLocation(shaderProgram, "aVertexColor");
     gl.enableVertexAttribArray(shaderProgram.vertexColorAttribute);
     
+    //shaderProgram.textureCoordAttribute = gl.getAttribLocation(shaderProgram, "aTextureCoord");
+    //gl.enableVertexAttribArray(shaderProgram.textureCoordAttribute);
+       
     shaderProgram.pMatrixUniform = gl.getUniformLocation(shaderProgram, "uPMatrix");
     shaderProgram.mvMatrixUniform = gl.getUniformLocation(shaderProgram, "uMVMatrix");
+    //shaderProgram.samplerUniform = gl.getUniformLocation(shaderProgram, "uSampler");
     
     this.shaderProgram = shaderProgram;
   },
@@ -120,6 +116,7 @@ var FunJs = Class.create({
     for (var i = 0; i < len; i++) {
       if (typeof gameObjs[i].initBuffers === 'function') {
         gameObjs[i].initBuffers(gl);
+        gameObjs[i].initTextures(gl);
       }
     }
   },
@@ -210,7 +207,6 @@ var FunJs = Class.create({
     for (var i = 0; i < len; i++) {
       this.ctx.fillText(this.debugMsgs[i], x, y + (i * 10));
     }
-    
     this.debugMsgs = [];
   },
   
@@ -260,19 +256,15 @@ var FunJs = Class.create({
   },
   
   tickObjs: function(self) {
-    try {
-      var objs  = self.getGameObjs();
-      var len   = objs.length;
-      var dTime = self.dTime;
-      var gl    = this.gl;
-      
-      for (var i = 0; i < len; i++) {
-        self.mvPushMatrix();
-        objs[i].tick(dTime, gl);
-        self.mvPopMatrix();
-      }
-    } catch (e) {
-      this.onError(e);
+    var objs  = self.getGameObjs();
+    var len   = objs.length;
+    var dTime = self.dTime;
+    var gl    = this.gl;
+    
+    for (var i = 0; i < len; i++) {
+      self.mvPushMatrix();
+      objs[i].tick(dTime, gl);
+      self.mvPopMatrix();
     }
   },
   

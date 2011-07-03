@@ -1,0 +1,10 @@
+body {
+  background-color: #000000;
+}
+#viewport {
+  display: fixed;
+  width: 99%;
+  height: 99%;
+  margin-left: auto;
+  margin-right: auto;
+}

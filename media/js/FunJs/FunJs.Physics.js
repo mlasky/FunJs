@@ -19,16 +19,12 @@ FunJs.Physics.World = Class.create({
     this.doSleep    = obj.doSleep || true;
     this.setGravity(new b2Vec2(gX, gY));
     
-    try {
-      this.worldAABB = new b2AABB();
-      this.worldAABB.minVertex.Set(this.minVertexX, this.minVertexY);
-      this.worldAABB.maxVertex.Set(this.maxVertexX, this.maxVertexY);
-      
-      this.world = this.createWorld();
-      this.ground = this.createGround(obj.ground || {});
-    } catch (e) {
-      FunJs.onError(e);
-    }
+    this.worldAABB = new b2AABB();
+    this.worldAABB.minVertex.Set(this.minVertexX, this.minVertexY);
+    this.worldAABB.maxVertex.Set(this.maxVertexX, this.maxVertexY);
+    
+    this.world = this.createWorld();
+    this.ground = this.createGround(obj.ground || {});
   },
   
   createWorld: function() {
@@ -50,18 +46,14 @@ FunJs.Physics.World = Class.create({
     var y           = obj.y || 300;
     var restitution = obj.restitution || 0.2;
     
-    try {
-      
-      var groundSd = new b2BoxDef();
-      groundSd.extents.Set(w, h);
-      groundSd.restitution = restitution;
-      
-      var groundBd = new b2BodyDef();
-      groundBd.AddShape(groundSd);
-      groundBd.position.Set(x, y);
-    } catch (e) {
-      FunJs.onError(e);
-    }
+    var groundSd = new b2BoxDef();
+    groundSd.extents.Set(w, h);
+    groundSd.restitution = restitution;
+    
+    var groundBd = new b2BodyDef();
+    groundBd.AddShape(groundSd);
+    groundBd.position.Set(x, y);
+
     return this.addBody(groundBd);
   },
   
@@ -115,24 +107,21 @@ FunJs.Physics.World = Class.create({
     var sFlag       = obj.sFlag         || false;
     var cFlags      = obj.cFlags;
 
-    try {
-      var boxSd         = new b2BoxDef();
-      boxSd.friction    = friction;
-      boxSd.restitution = restitution;
-      boxSd.density     = density;
+    var boxSd         = new b2BoxDef();
+    boxSd.friction    = friction;
+    boxSd.restitution = restitution;
+    boxSd.density     = density;
 
-      if (fixed) { 
-        boxSd.density = 0.0; 
-      }
-
-      boxSd.extents.Set(width, height);
-
-      var boxBd = new b2BodyDef();
-      boxBd.AddShape(boxSd);
-      boxBd.position.Set(x,y);
-    } catch (e) {
-      FunJs.onError(e);
+    if (fixed) { 
+      boxSd.density = 0.0; 
     }
+
+    boxSd.extents.Set(width, height);
+
+    var boxBd = new b2BodyDef();
+    boxBd.AddShape(boxSd);
+    boxBd.position.Set(x,y);
+
     return boxBd;
   },
   

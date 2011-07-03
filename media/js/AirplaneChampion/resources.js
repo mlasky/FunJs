@@ -25,7 +25,7 @@ var resources = {
       width: 480,
       height: 320 
     },
-    Cube: {
+    Cube2: {
       type: "Crate",
       layer: 2,
       width: 59,
@@ -35,6 +35,20 @@ var resources = {
       restitution: 0,
       friction: 0.8,
       rotation: 0,
+      vertexIndices: [
+          0, 1, 2, 1, 2, 3    // Front face
+      ],
+      textures: [
+        'media/images/crate.jpg'
+      ],
+      textureCoords: [
+        [
+          0.0, 0.0,
+          1.0, 0.0,
+          1.0, 1.0,
+          0.0, 1.0
+        ]
+      ],
       numItems: 4,
       itemSize: 3,
       vertices: [
@@ -50,34 +64,7 @@ var resources = {
           1.0, 1.0, 0.0, 1.0
       ],
       position: {
-        x: -1.5,
-        y: 0
-      }
-    },
-    Cube2: {
-      type: "Crate",
-      layer: 2,
-      width: 59,
-      height: 59,
-      kinematic: true,
-      density: 1.0,
-      restitution: 0,
-      friction: 0.8,
-      rotation: 0,
-      numItems: 3,
-      itemSize: 3,
-      vertices: [
-           0.0,  1.0,  0.0,
-          -1.0, -1.0,  0.0,
-           1.0, -1.0,  0.0
-      ],
-      colors: [
-          1.0, 0.0, 0.0, 1.0,
-          0.0, 1.0, 0.0, 1.0,
-          0.0, 0.0, 1.0, 1.0
-      ],
-      position: {
-        x: 2.0,
+        x: 0,
         y: 0
       }
     }
