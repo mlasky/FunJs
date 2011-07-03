@@ -13,7 +13,6 @@ FunJs.GameObj.Drawable = Class.create(FunJs.GameObj, {
     this.textureCoords = obj.textureCoords || [];
     this.vertexIndices = obj.vertexIndices || [];
     this._texture = null;
-    
   },
   
   tick: function($super, dTime, gl) {
@@ -38,10 +37,10 @@ FunJs.GameObj.Drawable = Class.create(FunJs.GameObj, {
     var vertexIndexBuffer        = this.vertexIndexBuffer;
     var vertexTextureCoordBuffer = this.vertexTextureCoordBuffer;
     
-    mat4.translate(mvMatrix, [x, -y, -100.0]);
+    mat4.translate(mvMatrix, [x, -y, -50.0]);
     
     
-    mat4.rotate(mvMatrix, this.rotation * Math.PI / 180, [0, 0, 1]);
+    mat4.rotate(mvMatrix, this.rotation, [0, 0, 1]);
     
     gl.bindBuffer(gl.ARRAY_BUFFER, vertexPositionBuffer);
     gl.vertexAttribPointer( shaderProgram.vertexPositionAttribute, 

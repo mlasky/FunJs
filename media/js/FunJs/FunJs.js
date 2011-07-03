@@ -27,7 +27,7 @@ var FunJs = Class.create({
   },
   
   run: function() {
-    window.setInterval(this.tick, 25, this);
+    window.setInterval(this.tick, 1000/60, this);
     //window.setInterval(this.updateFps, 1000, this);
   },
   
@@ -38,7 +38,7 @@ var FunJs = Class.create({
     self.time     = time;
     self.clear();
 
-    var timeStep = 1.0/40;
+    var timeStep = 1.0/120;
     self.world.step(timeStep, 1);
     self.tickObjs(self);
     //self.drawDebug();
@@ -71,7 +71,7 @@ var FunJs = Class.create({
     this.initBuffers();
     this.initTextures();
     
-    gl.clearColor(1.0, 1.0, 1.0, 1.0);
+    gl.clearColor(0.0, 0.0, 0.0, 0.0);
     gl.enable(gl.DEPTH_TEST);
   },
   

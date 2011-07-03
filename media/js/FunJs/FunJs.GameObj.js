@@ -17,6 +17,7 @@ FunJs.GameObj = Class.create({
     this.sFlag          = obj.sFlag       || false;
     this.cFlags         = obj.cFlags;
     this.kinematic      = obj.kinematic   || false;
+    this.staticBody     = obj.staticBody  || false;
     
     this.isTouchMoving  = false;
     this.touched        = false;
@@ -34,7 +35,7 @@ FunJs.GameObj = Class.create({
   },
   
   addCollisionBody: function(obj) {
-    cBody           = this.engine.world.PolyBody(obj);
+    cBody           = this.engine.world.PolyBody(obj, this.staticBody);
     this.cBody      = this.engine.world.addBody(cBody);
   },
   

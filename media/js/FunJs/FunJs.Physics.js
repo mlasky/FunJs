@@ -24,7 +24,6 @@ FunJs.Physics.World = Class.create({
     this.worldAABB.maxVertex.Set(this.maxVertexX, this.maxVertexY);
     
     this.world = this.createWorld();
-    this.ground = this.createGround(obj.ground || {});
   },
   
   createWorld: function() {
@@ -39,25 +38,8 @@ FunJs.Physics.World = Class.create({
     this.gravity = v;
   },
   
-  createGround: function(obj) {
-    var w           = obj.w || this.width;
-    var h           = obj.h || 50;
-    var x           = obj.x || this.minVertexX;
-    var y           = obj.y || 300;
-    var restitution = obj.restitution || 0.2;
-    
-    var groundSd = new b2BoxDef();
-    groundSd.extents.Set(w, h);
-    groundSd.restitution = restitution;
-    
-    var groundBd = new b2BodyDef();
-    groundBd.AddShape(groundSd);
-    groundBd.position.Set(x, y);
-
-    return this.addBody(groundBd);
-  },
   
-  PolyBody: function(obj) {
+  PolyBody: function(obj, staticBody) {
     var x           = obj.position.x    || 0;
     var y           = obj.position.y    || 0;
     var width       = obj.width         || 0;
@@ -73,24 +55,37 @@ FunJs.Physics.World = Class.create({
     var cFlags      = obj.cFlags;
     var cBodyData   = obj.cBodyData     || [];
     
-    var polySd = new b2PolyDef();
-    var len = cBodyData.length;
-    polySd.vertexCount = len;
-    
-    for (var i = 0; i < len; i++) {
-      polySd.vertices[i].Set(cBodyData[i][0], cBodyData[i][1]);
+    if (staticBody) {
+      var groundSd = new b2BoxDef();
+      groundSd.extents.Set(width, height);
+      groundSd.restitution = restitution;
+
+      var groundBd = new b2BodyDef();
+      groundBd.AddShape(groundSd);      
+      groundBd.position.Set(x, y);
+
+      return groundBd;
+      
+    } else {
+      var polySd = new b2PolyDef();
+      var len = cBodyData.length;
+      polySd.vertexCount = len;
+
+      for (var i = 0; i < len; i++) {
+        polySd.vertices[i].Set(cBodyData[i][0], cBodyData[i][1]);
+      }
+
+      polySd.localRotation = rotation;
+      var r = new b2Mat22(rotation);
+      polySd.localPosition = b2Math.b2MulMV(r, new b2Vec2(0, 0));
+      polySd.density = density;
+
+      var polyBd = new b2BodyDef();
+      polyBd.position.Set(x, y);
+      polyBd.AddShape(polySd);
+
+      return polyBd;
     }
-    
-    polySd.localRotation = rotation;
-    var r = new b2Mat22(rotation);
-    polySd.localPosition = b2Math.b2MulMV(r, new b2Vec2(0, 0));
-    polySd.density = density;
-    
-    var polyBd = new b2BodyDef();
-    polyBd.position.Set(x, y);
-    polyBd.AddShape(polySd);
-    console.log(polyBd)
-    return polyBd;
   },
   
   BoxBody: function(obj) {
@@ -126,6 +121,7 @@ FunJs.Physics.World = Class.create({
   },
   
   addBody: function(body) {
+    console.log(body)
     return this.world.CreateBody(body);
   },
   
