@@ -47,7 +47,7 @@ var FunJs = Class.create({
     //self.drawDebug();
     
     // mat4 from glMatrix-0.9.5.min.js
-    mat4.perspective(65, gl.viewportWidth / gl.viewportHeight, 0.1, 100.0, self.pMatrix);
+    mat4.perspective(65, gl.viewportWidth / gl.viewportHeight, 0.1, 200.0, self.pMatrix);
     mat4.identity(self.mvMatrix);
     
     self.fps++;
