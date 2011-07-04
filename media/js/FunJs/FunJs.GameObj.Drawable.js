@@ -37,7 +37,7 @@ FunJs.GameObj.Drawable = Class.create(FunJs.GameObj, {
     var vertexIndexBuffer        = this.vertexIndexBuffer;
     var vertexTextureCoordBuffer = this.vertexTextureCoordBuffer;
     
-    mat4.translate(mvMatrix, [x, -y, -150.0]);
+    mat4.translate(mvMatrix, [x, -y, this.layer * -50.0]);
     
     
     mat4.rotate(mvMatrix, this.rotation, [0, 0, 1]);

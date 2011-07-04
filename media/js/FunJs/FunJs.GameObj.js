@@ -18,7 +18,8 @@ FunJs.GameObj = Class.create({
     this.cFlags         = obj.cFlags;
     this.kinematic      = obj.kinematic   || false;
     this.staticBody     = obj.staticBody  || false;
-    
+    this.layer          = obj.layer;
+    console.log(this.layer)
     this.isTouchMoving  = false;
     this.touched        = false;
     

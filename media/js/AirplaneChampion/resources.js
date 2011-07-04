@@ -25,21 +25,35 @@ var resources = {
       width: 480,
       height: 320 
     },
-    // SkyBox: {
-    //   type: "SkyBox".
-    //   textureFile: 'media/images/skyboxsun5deg2.png',
-    //   vertices: [
-    //     -500.0,  -500.0,  0.0,
-    //      500.0,     0.0,  0.0,
-    //      500.0,     1.0,  0.0,
-    //     -500.0,     1.0,  0.0
-    // 
-    //   ],
-    //   position: {
-    //     x: 0,
-    //     y: 0
-    //   }
-    // },
+    SkyBox: {
+      type: "SkyBox",
+      textureFile: 'media/images/sunset_bg.png',
+      numItems: 4,
+      width: 3000,
+      height: 3000,
+      staticBody: true,
+      itemSize: 3,
+      vertexIndices: [
+          0, 1, 2, 0, 2, 3    // Front face
+      ],
+      vertices: [
+        -1500.0,  1500.0,  0.0,
+         1500.0,  1500.0,  0.0,
+         1500.0, -1500.0,  0.0,
+        -1500.0, -1500.0,  0.0
+    
+      ],
+      textureCoords: [
+        0.0, 0.0,
+        1.0, 0.0,
+        1.0, 1.0,
+        0.0, 1.0
+      ],
+      position: {
+        x: 0,
+        y: 0
+      }
+    },
     Ground: {
       type: "Ground",
       staticBody: true,
