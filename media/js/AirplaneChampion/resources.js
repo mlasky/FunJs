@@ -69,7 +69,7 @@ var resources = {
       ],
       position: {
         x: 0,
-        y: 10
+        y: 50
       }
     },
     Cube: {
@@ -1012,5 +1012,475 @@ var resources = {
         y: -140
       }
     },
+    Cube20: {
+      type: "Crate",
+      layer: 2,
+      width: 59,
+      height: 59,
+      kinematic: false,
+      density: 1.0,
+      restitution: 0.5,
+      friction: 0.8,
+      rotation: 0,
+      vertexIndices: [
+          0, 1, 2, 0, 2, 3    // Front face
+      ],
+      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureCoords: [
+        0.0, 0.0,
+        1.0, 0.0,
+        1.0, 1.0,
+        0.0, 1.0
+      ],
+      numItems: 4,
+      itemSize: 3,
+      vertices: [
+          // Front face
+          -5.0, -5.0,  0.0,
+           5.0, -5.0,  0.0,
+           5.0,  5.0,  0.0,
+          -5.0,  5.0,  0.0
+
+      ],
+      colors: [
+          1.0, 1.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 1.0, 0.0, 1.0
+      ],
+      cBodyData: [
+        [-5.0, -5.0],
+        [ 5.0, -5.0],
+        [ 5.0,  5.0],
+        [-5.0,  5.0]
+      ],
+      position: {
+        x:  0,
+        y: -380
+      }
+    },
+    Cube21: {
+      type: "Crate",
+      layer: 2,
+      width: 59,
+      height: 59,
+      kinematic: false,
+      density: 1.0,
+      restitution: 0.5,
+      friction: 0.8,
+      rotation: 0,
+      vertexIndices: [
+          0, 1, 2, 0, 2, 3    // Front face
+      ],
+      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureCoords: [
+        0.0, 0.0,
+        1.0, 0.0,
+        1.0, 1.0,
+        0.0, 1.0
+      ],
+      numItems: 4,
+      itemSize: 3,
+      vertices: [
+          // Front face
+          -5.0, -5.0,  0.0,
+           5.0, -5.0,  0.0,
+           5.0,  5.0,  0.0,
+          -5.0,  5.0,  0.0
+
+      ],
+      colors: [
+          1.0, 1.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 1.0, 0.0, 1.0
+      ],
+      cBodyData: [
+        [-5.0, -5.0],
+        [ 5.0, -5.0],
+        [ 5.0,  5.0],
+        [-5.0,  5.0]
+      ],
+      position: {
+        x: 0,
+        y: -320
+      }
+    },
+    Cube22: {
+      type: "Crate",
+      layer: 2,
+      width: 59,
+      height: 59,
+      kinematic: false,
+      density: 1.0,
+      restitution: 0.5,
+      friction: 0.8,
+      rotation: 0,
+      vertexIndices: [
+          0, 1, 2, 0, 2, 3    // Front face
+      ],
+      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureCoords: [
+        0.0, 0.0,
+        1.0, 0.0,
+        1.0, 1.0,
+        0.0, 1.0
+      ],
+      numItems: 4,
+      itemSize: 3,
+      vertices: [
+          // Front face
+          -5.0, -5.0,  0.0,
+           5.0, -5.0,  0.0,
+           5.0,  5.0,  0.0,
+          -5.0,  5.0,  0.0
+
+      ],
+      colors: [
+          1.0, 1.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 1.0, 0.0, 1.0
+      ],
+      cBodyData: [
+        [-5.0, -5.0],
+        [ 5.0, -5.0],
+        [ 5.0,  5.0],
+        [-5.0,  5.0]
+      ],
+      position: {
+        x: -20,
+        y: -320
+      }
+    },
+    Cube23: {
+      type: "Crate",
+      layer: 2,
+      width: 59,
+      height: 59,
+      kinematic: false,
+      density: 1.0,
+      restitution: 0.5,
+      friction: 0.8,
+      rotation: 0,
+      vertexIndices: [
+          0, 1, 2, 0, 2, 3    // Front face
+      ],
+      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureCoords: [
+        0.0, 0.0,
+        1.0, 0.0,
+        1.0, 1.0,
+        0.0, 1.0
+      ],
+      numItems: 4,
+      itemSize: 3,
+      vertices: [
+          // Front face
+          -5.0, -5.0,  0.0,
+           5.0, -5.0,  0.0,
+           5.0,  5.0,  0.0,
+          -5.0,  5.0,  0.0
+
+      ],
+      colors: [
+          1.0, 1.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 1.0, 0.0, 1.0
+      ],
+      cBodyData: [
+        [-5.0, -5.0],
+        [ 5.0, -5.0],
+        [ 5.0,  5.0],
+        [-5.0,  5.0]
+      ],
+      position: {
+        x:  20,
+        y: -320
+      }
+    },
+    Cube24: {
+      type: "Crate",
+      layer: 2,
+      width: 59,
+      height: 59,
+      kinematic: false,
+      density: 1.0,
+      restitution: 0.5,
+      friction: 0.8,
+      rotation: 0,
+      vertexIndices: [
+          0, 1, 2, 0, 2, 3    // Front face
+      ],
+      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureCoords: [
+        0.0, 0.0,
+        1.0, 0.0,
+        1.0, 1.0,
+        0.0, 1.0
+      ],
+      numItems: 4,
+      itemSize: 3,
+      vertices: [
+          // Front face
+          -5.0, -5.0,  0.0,
+           5.0, -5.0,  0.0,
+           5.0,  5.0,  0.0,
+          -5.0,  5.0,  0.0
+
+      ],
+      colors: [
+          1.0, 1.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 1.0, 0.0, 1.0
+      ],
+      cBodyData: [
+        [-5.0, -5.0],
+        [ 5.0, -5.0],
+        [ 5.0,  5.0],
+        [-5.0,  5.0]
+      ],
+      position: {
+        x: -40,
+        y: -320
+      }
+    },
+    Cube25: {
+      type: "Crate",
+      layer: 2,
+      width: 59,
+      height: 59,
+      kinematic: false,
+      density: 1.0,
+      restitution: 0.5,
+      friction: 0.8,
+      rotation: 0,
+      vertexIndices: [
+          0, 1, 2, 0, 2, 3    // Front face
+      ],
+      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureCoords: [
+        0.0, 0.0,
+        1.0, 0.0,
+        1.0, 1.0,
+        0.0, 1.0
+      ],
+      numItems: 4,
+      itemSize: 3,
+      vertices: [
+          // Front face
+          -5.0, -5.0,  0.0,
+           5.0, -5.0,  0.0,
+           5.0,  5.0,  0.0,
+          -5.0,  5.0,  0.0
+
+      ],
+      colors: [
+          1.0, 1.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 1.0, 0.0, 1.0
+      ],
+      cBodyData: [
+        [-5.0, -5.0],
+        [ 5.0, -5.0],
+        [ 5.0,  5.0],
+        [-5.0,  5.0]
+      ],
+      position: {
+        x:  40,
+        y: -320
+      }
+    },
+    Cube26: {
+      type: "Crate",
+      layer: 2,
+      width: 59,
+      height: 59,
+      kinematic: false,
+      density: 1.0,
+      restitution: 0.5,
+      friction: 0.8,
+      rotation: 0,
+      vertexIndices: [
+          0, 1, 2, 0, 2, 3    // Front face
+      ],
+      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureCoords: [
+        0.0, 0.0,
+        1.0, 0.0,
+        1.0, 1.0,
+        0.0, 1.0
+      ],
+      numItems: 4,
+      itemSize: 3,
+      vertices: [
+          // Front face
+          -5.0, -5.0,  0.0,
+           5.0, -5.0,  0.0,
+           5.0,  5.0,  0.0,
+          -5.0,  5.0,  0.0
+
+      ],
+      colors: [
+          1.0, 1.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 1.0, 0.0, 1.0
+      ],
+      cBodyData: [
+        [-5.0, -5.0],
+        [ 5.0, -5.0],
+        [ 5.0,  5.0],
+        [-5.0,  5.0]
+      ],
+      position: {
+        x: -60,
+        y: -320
+      }
+    },
+    Cube27: {
+      type: "Crate",
+      layer: 2,
+      width: 59,
+      height: 59,
+      kinematic: false,
+      density: 1.0,
+      restitution: 0.5,
+      friction: 0.8,
+      rotation: 0,
+      vertexIndices: [
+          0, 1, 2, 0, 2, 3    // Front face
+      ],
+      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureCoords: [
+        0.0, 0.0,
+        1.0, 0.0,
+        1.0, 1.0,
+        0.0, 1.0
+      ],
+      numItems: 4,
+      itemSize: 3,
+      vertices: [
+          // Front face
+          -5.0, -5.0,  0.0,
+           5.0, -5.0,  0.0,
+           5.0,  5.0,  0.0,
+          -5.0,  5.0,  0.0
+
+      ],
+      colors: [
+          1.0, 1.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 1.0, 0.0, 1.0
+      ],
+      cBodyData: [
+        [-5.0, -5.0],
+        [ 5.0, -5.0],
+        [ 5.0,  5.0],
+        [-5.0,  5.0]
+      ],
+      position: {
+        x:  60,
+        y: -320
+      }
+    },
+    Cube28: {
+      type: "Crate",
+      layer: 2,
+      width: 59,
+      height: 59,
+      kinematic: false,
+      density: 1.0,
+      restitution: 0.5,
+      friction: 0.8,
+      rotation: 0,
+      vertexIndices: [
+          0, 1, 2, 0, 2, 3    // Front face
+      ],
+      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureCoords: [
+        0.0, 0.0,
+        1.0, 0.0,
+        1.0, 1.0,
+        0.0, 1.0
+      ],
+      numItems: 4,
+      itemSize: 3,
+      vertices: [
+          // Front face
+          -5.0, -5.0,  0.0,
+           5.0, -5.0,  0.0,
+           5.0,  5.0,  0.0,
+          -5.0,  5.0,  0.0
+
+      ],
+      colors: [
+          1.0, 1.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 1.0, 0.0, 1.0
+      ],
+      cBodyData: [
+        [-5.0, -5.0],
+        [ 5.0, -5.0],
+        [ 5.0,  5.0],
+        [-5.0,  5.0]
+      ],
+      position: {
+        x: -80,
+        y: -320
+      }
+    },
+    Cube29: {
+      type: "Crate",
+      layer: 2,
+      width: 59,
+      height: 59,
+      kinematic: false,
+      density: 1.0,
+      restitution: 0.5,
+      friction: 0.8,
+      rotation: 0,
+      vertexIndices: [
+          0, 1, 2, 0, 2, 3    // Front face
+      ],
+      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureCoords: [
+        0.0, 0.0,
+        1.0, 0.0,
+        1.0, 1.0,
+        0.0, 1.0
+      ],
+      numItems: 4,
+      itemSize: 3,
+      vertices: [
+          // Front face
+          -5.0, -5.0,  0.0,
+           5.0, -5.0,  0.0,
+           5.0,  5.0,  0.0,
+          -5.0,  5.0,  0.0
+
+      ],
+      colors: [
+          1.0, 1.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 1.0, 0.0, 1.0
+      ],
+      cBodyData: [
+        [-5.0, -5.0],
+        [ 5.0, -5.0],
+        [ 5.0,  5.0],
+        [-5.0,  5.0]
+      ],
+      position: {
+        x:  80,
+        y: -320
+      }
+    }
   }
 };
