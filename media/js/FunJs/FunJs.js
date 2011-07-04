@@ -35,7 +35,7 @@ var FunJs = Class.create({
     var self = this;
     var time      = self.getTime();
     var gl        = self.gl;
-    self.dTime    = Math.max(time - self.time, 60);
+    self.dTime    = Math.min(time - self.time, 60);
     self.time     = time;
     self.clear();
 
