@@ -33,10 +33,11 @@ var FunJs = Class.create({
   
   tick: function(time) {
     var self = this;
-    var time      = self.getTime();
+    var nTime = self.getTime();
+    var pTime = self.pTime || 60
+    self.dTime    = Math.min(nTime - pTime, 60);
+    self.pTime    = nTime;
     var gl        = self.gl;
-    self.dTime    = Math.min(time - self.time, 60);
-    self.time     = time;
     self.clear();
 
     var timeStep = 1.0/self.dTime;
