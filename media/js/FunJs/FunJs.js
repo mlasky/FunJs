@@ -27,11 +27,12 @@ var FunJs = Class.create({
   },
   
   run: function() {
-    window.setInterval(this.tick, 1000/60, this);
+    window.requestAnimFrame(this.tick.bind(this));
     //window.setInterval(this.updateFps, 1000, this);
   },
   
-  tick: function(self) {
+  tick: function(time) {
+    var self = this;
     var time      = self.getTime();
     var gl        = self.gl;
     self.dTime    = time - self.time;
@@ -44,11 +45,11 @@ var FunJs = Class.create({
     //self.drawDebug();
     
     // mat4 from glMatrix-0.9.5.min.js
-    mat4.perspective(45, gl.viewportWidth / gl.viewportHeight, 0.1, 100.0, self.pMatrix);
+    mat4.perspective(65, gl.viewportWidth / gl.viewportHeight, 0.1, 100.0, self.pMatrix);
     mat4.identity(self.mvMatrix);
     
     self.fps++;
-    
+    window.requestAnimFrame(this.tick.bind(this));
     //self.debugMsgs.push("Fps: " + self.Fps);
     //self.debugMsgs.push("Camera: " + self.camera.position.x + "," + self.camera.position.y);
     //self.debugMsgs.push("dTime: " + self.dTime);      
@@ -56,7 +57,7 @@ var FunJs = Class.create({
   
   initGl: function() {
     var canvas = this.canvas;
-    var gl = WebGLDebugUtils.makeDebugContext(canvas.getContext("experimental-webgl"));
+    var gl = WebGLDebugUtils.makeDebugContext(WebGLUtils.setupWebGL(canvas));
     gl.viewportWidth = canvas.width;
     gl.viewportHeight = canvas.height;
     

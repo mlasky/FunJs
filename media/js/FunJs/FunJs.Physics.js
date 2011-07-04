@@ -121,7 +121,6 @@ FunJs.Physics.World = Class.create({
   },
   
   addBody: function(body) {
-    console.log(body)
     return this.world.CreateBody(body);
   },
   
