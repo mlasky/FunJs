@@ -34,7 +34,7 @@ var FunJs = Class.create({
   tick: function(time) {
     var self = this;
     var nTime = self.getTime();
-    var pTime = self.pTime || 60
+    var pTime = self.pTime || 60;
     self.dTime    = Math.min(nTime - pTime, 60);
     self.pTime    = nTime;
     var gl        = self.gl;
