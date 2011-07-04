@@ -2,8 +2,7 @@
 <html>
   <head>
 	<!-- Change this if you want to allow scaling -->
-    <meta name="viewport" content="width=default-width; user-scalable=no" />
-
+  
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 
     <title>PhoneGap</title>
@@ -12,14 +11,16 @@
 	<link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="ipad.css" type="text/css" />		
 	<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />		
 	-->
-	<link rel="stylesheet" href="reset.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="media/css/reset.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="media/css/funJs.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	
 	<!-- If you application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
-	<script type="text/javascript" charset="utf-8" src="media/js/phonegap.js"></script>
-  
+	<script src="media/js/FunJs/dep/webgl-debug.js" type="text/javascript"></script>
   <script src="media/js/xui-core-1.0.0.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="media/js/xui-more-1.0.0.js" type="text/javascript" charset="utf-8"></script>
   <script src="media/js/prototype-1.6.0.2.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" src="media/js/FunJs/dep/glMatrix-0.9.5.min.js"></script>
+  <script src="media/js/FunJs/dep/webgl-utils.js" type="text/javascript" charset="utf-8"></script>
   
 	<!-- box2djs -->
   <script src='media/js/box2d/common/b2Settings.js'></script>
@@ -111,42 +112,55 @@
   <script src="media/js/AirplaneChampion/resources.js" type="text/javascript" charset="utf-8"></script>
   <script src="media/js/AirplaneChampion/FunJs.Plane.js" type="text/javascript" charset="utf-8"></script>
   <script src="media/js/AirplaneChampion/FunJs.Crate.js" type="text/javascript" charset="utf-8"></script>
+  <script src="media/js/AirplaneChampion/FunJs.Ground.js" type="text/javascript" charset="utf-8"></script>
   
   <script type="text/javascript" charset="utf-8">
-
-
-	// If you want to prevent dragging, uncomment this section
-	
-	function preventBehavior(e) 
-	{ 
+    // If you want to prevent dragging, uncomment this section
+    function preventBehavior(e)  { 
       e.preventDefault(); 
     };
-	document.addEventListener("touchmove", preventBehavior, false);
-	
-	
-	function onBodyLoad()
-	{
-		document.addEventListener("deviceready",onDeviceReady,false);
-	}
-	
-	/* When this function is called, PhoneGap has been initialized and is ready to roll */
-	function onDeviceReady()
-	{
-	  try {
-	    var h = window.innerHeight;
-      var w = window.innerWidth;
+    document.addEventListener("touchmove", preventBehavior, false);
+
+
+    function onBodyLoad() {
       var c = x$("#viewport").first();
-      x$(c).attr("width", w);
-      x$(c).attr("height", h);
       var game = new FunJs(c, resources);
-	  } catch (e) {
-	    FunJs.onError(e);
-	  }
-	}
+    }
+  </script>
     
-    </script>
+    
+  <script id="shader-fs" type="x-shader/x-fragment">
+      #ifdef GL_ES
+      precision highp float;
+      #endif
+
+      varying vec2 vTextureCoord;
+
+      uniform sampler2D uSampler;
+
+      void main(void) {
+          gl_FragColor = texture2D(uSampler, vec2(vTextureCoord.s, vTextureCoord.t));
+      }
+  </script>
+
+  <script id="shader-vs" type="x-shader/x-vertex">
+      attribute vec3 aVertexPosition;
+      attribute vec2 aTextureCoord;
+
+      uniform mat4 uMVMatrix;
+      uniform mat4 uPMatrix;
+
+      varying vec2 vTextureCoord;
+
+      void main(void) {
+          gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
+          vTextureCoord = aTextureCoord;
+      }
+  </script>
+
+
   </head>
   <body onload="onBodyLoad()">
-  	<canvas id="viewport" width="320" height="240"></canvas>
+  	<canvas id="viewport"></canvas>
   </body>
 </html>
