@@ -9,7 +9,7 @@ var resources = {
     height: 5000,
     gravity: {
       x: 0,
-      y: 650
+      y: 300
     }
   },
   GameObjs: {

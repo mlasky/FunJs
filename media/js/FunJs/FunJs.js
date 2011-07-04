@@ -27,19 +27,19 @@ var FunJs = Class.create({
   },
   
   run: function() {
-    window.requestAnimFrame(this.tick.bind(this));
+    window.requestAnimFrame(this.tick.bind(this), 1000/120);
     //window.setInterval(this.updateFps, 1000, this);
   },
   
   tick: function(time) {
     var self = this;
-    var time      = self.getTime();
     var gl        = self.gl;
     self.dTime    = time - self.time;
     self.time     = time;
     self.clear();
+    
+    var timeStep = 1.0/80;
 
-    var timeStep = 1.0/120;
     self.world.step(timeStep, 1);
     self.tickObjs(self);
     //self.drawDebug();
