@@ -59,7 +59,8 @@ var FunJs = Class.create({
   
   initGl: function() {
     var canvas = this.canvas;
-    var gl = WebGLDebugUtils.makeDebugContext(WebGLUtils.setupWebGL(canvas));
+    //var gl = WebGLDebugUtils.makeDebugContext(WebGLUtils.setupWebGL(canvas));
+    var gl = WebGLUtils.setupWebGL(canvas);
     gl.viewportWidth = canvas.width;
     gl.viewportHeight = canvas.height;
     
