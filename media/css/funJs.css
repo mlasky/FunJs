@@ -2,7 +2,7 @@ body {
   background-color: #000000;
 }
 #viewport {
-  display: fixed;
+  display: block;
   width: 720;
   height: 480;
   margin-left: auto;

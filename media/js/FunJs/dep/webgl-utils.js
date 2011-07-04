@@ -157,7 +157,7 @@ window.requestAnimFrame = (function() {
          window.oRequestAnimationFrame ||
          window.msRequestAnimationFrame ||
          function(/* function FrameRequestCallback */ callback, /* DOMElement Element */ element) {
-           window.setTimeout(callback, 1000/120);
+           window.setTimeout(callback, 1000/60);
          };
 })();
 
