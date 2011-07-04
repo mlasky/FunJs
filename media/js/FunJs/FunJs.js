@@ -40,7 +40,7 @@ var FunJs = Class.create({
     var gl        = self.gl;
     self.clear();
 
-    var timeStep = 1.0/60;
+    var timeStep = 1.0/90;
 
     self.world.step(timeStep, 1);
     self.tickObjs(self);
