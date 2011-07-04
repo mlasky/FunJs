@@ -1,8 +1,8 @@
 var FunJs = Class.create({
   
   initialize: function(canvas, resources) {
-    canvas.width      = document.width;
-    canvas.height     = document.height;
+    canvas.width      = 720;
+    canvas.height     = 480;
     
     this.canvas       = canvas;
     this.time         = this.getTime();

@@ -3,8 +3,8 @@ body {
 }
 #viewport {
   display: fixed;
-  width: 99%;
-  height: 99%;
+  width: 720;
+  height: 480;
   margin-left: auto;
   margin-right: auto;
 }
