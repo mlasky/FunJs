@@ -114,7 +114,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -161,7 +161,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -208,7 +208,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -255,7 +255,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -302,7 +302,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -349,7 +349,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -396,7 +396,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -443,7 +443,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -490,7 +490,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -537,7 +537,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -584,7 +584,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -631,7 +631,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -678,7 +678,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -725,7 +725,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -772,7 +772,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -819,7 +819,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -866,7 +866,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -913,7 +913,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -960,7 +960,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -1007,7 +1007,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -1054,7 +1054,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -1101,7 +1101,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -1148,7 +1148,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -1195,7 +1195,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -1242,7 +1242,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -1289,7 +1289,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -1336,7 +1336,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -1383,7 +1383,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -1430,7 +1430,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -1477,7 +1477,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -1524,7 +1524,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -1571,7 +1571,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -1618,7 +1618,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -1665,7 +1665,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -1712,7 +1712,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -1759,7 +1759,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -1806,7 +1806,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -1853,7 +1853,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -1900,7 +1900,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -1947,7 +1947,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -1994,7 +1994,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -2041,7 +2041,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -2088,7 +2088,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -2135,7 +2135,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -2182,7 +2182,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -2229,7 +2229,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -2276,7 +2276,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -2323,7 +2323,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -2370,7 +2370,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -2417,7 +2417,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -2464,7 +2464,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -2511,7 +2511,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -2558,7 +2558,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -2605,7 +2605,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -2652,7 +2652,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -2699,7 +2699,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -2746,7 +2746,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -2793,7 +2793,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -2840,7 +2840,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -2887,7 +2887,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -2934,7 +2934,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -2981,7 +2981,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -3028,7 +3028,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -3075,7 +3075,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -3122,7 +3122,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -3169,7 +3169,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -3216,7 +3216,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -3263,7 +3263,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -3310,7 +3310,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -3357,7 +3357,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -3404,7 +3404,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -3451,7 +3451,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -3498,7 +3498,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -3545,7 +3545,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -3592,7 +3592,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -3639,7 +3639,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -3686,7 +3686,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -3733,7 +3733,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -3780,7 +3780,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,
@@ -3827,7 +3827,7 @@ var resources = {
       vertexIndices: [
           0, 1, 2, 0, 2, 3    // Front face
       ],
-      textureFile: 'media/images/Cargo0021_thumbhuge.png',
+      textureFile: 'media/images/crate.png',
       textureCoords: [
         0.0, 0.0,
         1.0, 0.0,

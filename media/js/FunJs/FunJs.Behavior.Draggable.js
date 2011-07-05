@@ -37,5 +37,5 @@ FunJs.Behavoir.Draggable = {
       this.position.x = cam.x1() + event.pageX;
       this.position.y = cam.y1() + event.pageY;
     }
-  }  
+  }
 };

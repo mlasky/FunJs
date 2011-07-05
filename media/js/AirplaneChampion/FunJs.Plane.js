@@ -18,15 +18,6 @@ FunJs.Plane = Class.create(FunJs.GameObj.Drawable.Sprite, {
   
   tick: function($super, ctx, camera, dTime) {
     $super(ctx, camera, dTime);
-    
-    if (!this.cBody) {
-      this.cBody = this.engine.world.addBody(this.engine.world.BoxBody(this));
-    }
-    
-    var p = this.position; 
-    var width = this.width;
-    var height = this.height;
-    
   },
   
   draw: function($super, ctx, camera, dTime) {
